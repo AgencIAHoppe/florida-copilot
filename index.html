@@ -3,157 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Florida 2026">
 <meta name="theme-color" content="#0a0a0f">
-<link rel="manifest" href="manifest.json">
-<title>Florida 2026 · Co-Piloto</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>Florida 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --bg2: #13131a;
-    --bg3: #1c1c26;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --text: #f0efe8;
-    --text2: #9997a8;
-    --text3: #5a5870;
-    --accent: #6c63ff;
-    --accent2: #9d97ff;
-    --gold: #f5c842;
-    --gold2: #fad96e;
-    --green: #3ecf8e;
-    --red: #f56565;
-    --font: 'DM Sans', sans-serif;
-    --mono: 'Space Mono', monospace;
-    --radius: 16px;
-    --radius-sm: 10px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.6; overflow: hidden; }
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',sans-serif;font-size:15px;overflow:hidden}
 
-  #app { display: flex; flex-direction: column; height: 100dvh; max-width: 480px; margin: 0 auto; }
+#app{display:flex;flex-direction:column;height:100dvh;max-width:480px;margin:0 auto}
 
-  /* HEADER */
-  #header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 12px; background: var(--bg); border-bottom: 1px solid var(--border); flex-shrink: 0; }
-  .header-left { display: flex; align-items: center; gap: 10px; }
-  .logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--gold)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .header-info h1 { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.2px; }
-  .header-info p { font-size: 11px; color: var(--text3); font-family: var(--mono); }
-  #status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text3); transition: background 0.3s; flex-shrink: 0; }
-  #status-dot.online { background: var(--green); box-shadow: 0 0 6px var(--green); }
-  #status-dot.thinking { background: var(--gold); animation: pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+/* HEADER */
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+.hdr-l{display:flex;align-items:center;gap:10px}
+.logo{width:36px;height:36px;background:linear-gradient(135deg,#6c63ff,#f5c842);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.hdr-title{font-size:15px;font-weight:600;letter-spacing:-0.2px}
+.hdr-sub{font-size:11px;color:#5a5870;font-family:'Space Mono',monospace}
+#dot{width:8px;height:8px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 6px #3ecf8e}
+#dot.busy{background:#f5c842;box-shadow:0 0 6px #f5c842;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-  /* QUICK ACTIONS */
-  #quick-actions { display: flex; gap: 8px; padding: 10px 16px; overflow-x: auto; flex-shrink: 0; scrollbar-width: none; border-bottom: 1px solid var(--border); }
-  #quick-actions::-webkit-scrollbar { display: none; }
-  .quick-btn { display: flex; align-items: center; gap: 6px; padding: 7px 13px; background: var(--bg2); border: 1px solid var(--border2); border-radius: 20px; color: var(--text2); font-size: 12px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: all 0.15s; font-family: var(--font); }
-  .quick-btn:active { background: var(--bg3); transform: scale(0.97); }
+/* QUICK */
+#quick{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.07);scrollbar-width:none}
+#quick::-webkit-scrollbar{display:none}
+.qbtn{display:flex;align-items:center;gap:5px;padding:7px 13px;background:#13131a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;color:#9997a8;font-size:12px;font-weight:500;white-space:nowrap;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0}
+.qbtn:active{opacity:.7}
 
-  /* MESSAGES */
-  #messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-  #messages::-webkit-scrollbar { width: 3px; }
-  #messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+/* MESSAGES */
+#msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;-webkit-overflow-scrolling:touch}
+#msgs::-webkit-scrollbar{width:3px}
+#msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
 
-  /* BUBBLES */
-  .msg { display: flex; gap: 10px; animation: fadeUp 0.25s ease; }
-  @keyframes fadeUp { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: none; } }
-  .msg.user { flex-direction: row-reverse; }
-  .msg-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 2px; }
-  .msg.agent .msg-avatar { background: linear-gradient(135deg, var(--accent), var(--gold)); }
-  .msg.user .msg-avatar { background: var(--bg3); border: 1px solid var(--border2); }
-  .msg-content { max-width: 82%; display: flex; flex-direction: column; gap: 4px; }
-  .msg.user .msg-content { align-items: flex-end; }
-  .msg-bubble { padding: 11px 14px; border-radius: var(--radius); font-size: 14px; line-height: 1.65; }
-  .msg.agent .msg-bubble { background: var(--bg2); border: 1px solid var(--border); border-bottom-left-radius: 4px; color: var(--text); }
-  .msg.user .msg-bubble { background: var(--accent); border-bottom-right-radius: 4px; color: #fff; }
-  .msg-bubble strong { color: var(--gold2); font-weight: 600; }
-  .msg.user .msg-bubble strong { color: #fff; font-weight: 700; }
-  .msg-time { font-size: 10px; color: var(--text3); font-family: var(--mono); padding: 0 4px; }
+.msg{display:flex;gap:10px;animation:up .2s ease}
+@keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.msg.user{flex-direction:row-reverse}
 
-  /* WAIT CARD */
-  .wait-card { background: var(--bg3); border: 1px solid var(--border2); border-radius: 12px; padding: 12px; margin-top: 8px; }
-  .wait-card-title { font-size: 11px; font-weight: 700; color: var(--green); font-family: var(--mono); letter-spacing: 0.05em; margin-bottom: 10px; }
-  .wait-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .wait-item:last-child { border-bottom: none; }
-  .wait-badge { font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
-  .w-low { background: rgba(62,207,142,0.15); color: var(--green); }
-  .w-med { background: rgba(245,200,66,0.15); color: var(--gold); }
-  .w-high { background: rgba(245,101,101,0.15); color: var(--red); }
-  .w-off { background: var(--bg2); color: var(--text3); }
+.av{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
+.msg.agent .av{background:linear-gradient(135deg,#6c63ff,#f5c842)}
+.msg.user .av{background:#1c1c26;border:1px solid rgba(255,255,255,0.12)}
 
-  /* TYPING */
-  #typing { display: none; align-items: center; gap: 10px; padding: 0 16px 8px; }
-  #typing.visible { display: flex; }
-  .typing-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
-  .typing-bubble { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); border-bottom-left-radius: 4px; padding: 12px 16px; display: flex; gap: 5px; align-items: center; }
-  .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text3); animation: bounce 1.2s infinite; }
-  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+.mc{max-width:82%;display:flex;flex-direction:column;gap:4px}
+.msg.user .mc{align-items:flex-end}
 
-  /* INPUT */
-  #input-area { padding: 12px 16px; padding-bottom: max(12px, env(safe-area-inset-bottom)); background: var(--bg); border-top: 1px solid var(--border); flex-shrink: 0; }
-  #input-row { display: flex; gap: 10px; align-items: flex-end; background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 10px 14px; transition: border-color 0.2s; }
-  #input-row:focus-within { border-color: var(--accent); }
-  #input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-family: var(--font); font-size: 15px; resize: none; max-height: 120px; min-height: 24px; line-height: 1.5; }
-  #input::placeholder { color: var(--text3); }
-  #send-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; color: white; }
-  #send-btn:active { transform: scale(0.92); }
-  #send-btn:disabled { background: var(--bg3); cursor: not-allowed; opacity: 0.5; }
-  #send-btn svg { width: 16px; height: 16px; }
+.bbl{padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.65}
+.msg.agent .bbl{background:#13131a;border:1px solid rgba(255,255,255,0.07);border-bottom-left-radius:4px}
+.msg.user .bbl{background:#6c63ff;border-bottom-right-radius:4px;color:#fff}
+.bbl strong{color:#fad96e;font-weight:600}
+.msg.user .bbl strong{color:#fff}
+.bbl code{background:#1c1c26;padding:1px 5px;border-radius:4px;font-family:'Space Mono',monospace;font-size:12px}
 
-  /* ERROR BANNER */
-  .error-banner { background: rgba(245,101,101,0.1); border: 1px solid rgba(245,101,101,0.3); border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--red); margin: 8px 16px; }
+.ts{font-size:10px;color:#5a5870;font-family:'Space Mono',monospace;padding:0 4px}
 
-  .day-banner { text-align: center; padding: 6px 0; font-size: 11px; color: var(--text3); font-family: var(--mono); letter-spacing: 0.05em; }
+/* WAIT CARD */
+.wcard{background:#1c1c26;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;margin-top:8px}
+.wcard-title{font-size:10px;font-weight:700;color:#3ecf8e;font-family:'Space Mono',monospace;letter-spacing:.05em;margin-bottom:10px}
+.wi{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:13px}
+.wi:last-child{border-bottom:none}
+.wb{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px}
+.wl{background:rgba(62,207,142,.15);color:#3ecf8e}
+.wm{background:rgba(245,200,66,.15);color:#f5c842}
+.wh{background:rgba(245,101,101,.15);color:#f56565}
+.wo{background:#13131a;color:#5a5870}
+
+/* TYPING */
+#typ{display:none;gap:10px;padding:0 16px 8px;align-items:center}
+#typ.on{display:flex}
+.tav{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#6c63ff,#f5c842);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.tbbl{background:#13131a;border:1px solid rgba(255,255,255,0.07);border-radius:16px;border-bottom-left-radius:4px;padding:12px 16px;display:flex;gap:5px;align-items:center}
+.td{width:6px;height:6px;border-radius:50%;background:#5a5870;animation:bounce 1.2s infinite}
+.td:nth-child(2){animation-delay:.2s}
+.td:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+/* INPUT */
+#inp-area{padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+#inp-row{display:flex;gap:10px;align-items:flex-end;background:#13131a;border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:10px 14px;transition:border-color .2s}
+#inp-row:focus-within{border-color:#6c63ff}
+#inp{flex:1;background:none;border:none;outline:none;color:#f0efe8;font-family:'DM Sans',sans-serif;font-size:15px;resize:none;max-height:120px;min-height:24px;line-height:1.5}
+#inp::placeholder{color:#5a5870}
+#sbtn{width:34px;height:34px;border-radius:50%;background:#6c63ff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;color:#fff}
+#sbtn:active{transform:scale(.92)}
+#sbtn:disabled{background:#1c1c26;cursor:not-allowed;opacity:.5}
+#sbtn svg{width:16px;height:16px}
+
+.daybanner{text-align:center;padding:6px 0;font-size:11px;color:#5a5870;font-family:'Space Mono',monospace;letter-spacing:.05em}
 </style>
 </head>
 <body>
 <div id="app">
-  <div id="header">
-    <div class="header-left">
+
+  <div id="hdr">
+    <div class="hdr-l">
       <div class="logo">🎢</div>
-      <div class="header-info">
-        <h1>Florida 2026</h1>
-        <p id="header-sub">Co-Piloto · Be, Ju & Você</p>
+      <div>
+        <div class="hdr-title">Florida 2026</div>
+        <div class="hdr-sub" id="hdr-sub">Co-Piloto · Be, Ju &amp; Você</div>
       </div>
     </div>
-    <div id="status-dot"></div>
+    <div id="dot"></div>
   </div>
 
-  <div id="quick-actions">
-    <button class="quick-btn" onclick="qa('Quais são as filas agora no parque de hoje?')">⏱️ Filas agora</button>
-    <button class="quick-btn" onclick="qa('Qual a próxima atração do roteiro?')">➡️ Próxima atração</button>
-    <button class="quick-btn" onclick="qa('O Be está cansado agora, o que fazemos?')">😴 Be cansou</button>
-    <button class="quick-btn" onclick="qa('Tem imprevistos ou reformas hoje?')">⚠️ Imprevistos</button>
-    <button class="quick-btn" onclick="qa('Me dá um hack especial para o parque de hoje.')">🎯 Hack do dia</button>
-    <button class="quick-btn" onclick="qa('Explica o Express Pass da Universal comparando com o Lightning Lane da Disney.')">🎟️ Universal 101</button>
-    <button class="quick-btn" onclick="qa('Como faço isso no app My Disney Experience agora?')">📱 App Disney</button>
-    <button class="quick-btn" onclick="qa('Uma atração importante quebrou. Recalcula o roteiro de hoje.')">🔄 Rota quebrou</button>
+  <div id="quick">
+    <button class="qbtn" onclick="qa('Quais são as filas agora no parque de hoje?')">⏱️ Filas agora</button>
+    <button class="qbtn" onclick="qa('Qual a próxima atração do roteiro de hoje?')">➡️ Próxima</button>
+    <button class="qbtn" onclick="qa('O Be está cansado agora. O que fazemos?')">😴 Be cansou</button>
+    <button class="qbtn" onclick="qa('Tem imprevistos ou reformas hoje que devo saber?')">⚠️ Imprevistos</button>
+    <button class="qbtn" onclick="qa('Me dá o melhor hack para o parque de hoje.')">🎯 Hack do dia</button>
+    <button class="qbtn" onclick="qa('Explica o Express Pass da Universal comparando com o Lightning Lane Disney.')">🎟️ Universal 101</button>
+    <button class="qbtn" onclick="qa('Preciso de ajuda com o app My Disney Experience agora.')">📱 App Disney</button>
+    <button class="qbtn" onclick="qa('Uma atração fechou ou quebrou. Recalcula o roteiro de hoje.')">🔄 Rota quebrou</button>
   </div>
 
-  <div id="messages">
-    <div class="day-banner">CO-PILOTO ATIVO · FLORIDA 2026</div>
+  <div id="msgs">
+    <div class="daybanner">CO-PILOTO ATIVO · FLORIDA 2026</div>
   </div>
 
-  <div id="typing">
-    <div class="typing-avatar">🎢</div>
-    <div class="typing-bubble">
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
+  <div id="typ">
+    <div class="tav">🎢</div>
+    <div class="tbbl">
+      <div class="td"></div>
+      <div class="td"></div>
+      <div class="td"></div>
     </div>
   </div>
 
-  <div id="input-area">
-    <div id="input-row">
-      <textarea id="input" placeholder="Pergunta qualquer coisa..." rows="1"></textarea>
-      <button id="send-btn" onclick="send()" disabled>
+  <div id="inp-area">
+    <div id="inp-row">
+      <textarea id="inp" placeholder="Pergunta qualquer coisa..." rows="1"></textarea>
+      <button id="sbtn" disabled onclick="send()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="22" y1="2" x2="11" y2="13"></line>
           <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -161,328 +141,336 @@
       </button>
     </div>
   </div>
+
 </div>
-
 <script>
-const SYSTEM = `Você é o co-piloto de viagem da família para a viagem à Flórida 2026.
+const SYSTEM = `Você é o Guia de viagem da família Hoppe para as Férias de 2026.
 
-FAMÍLIA:
-- Pai (usuário do app), Ju (mãe), Be (filho, 3 anos e meio, 97cm, carrinho)
+FAMÍLIA: Hoppe (Pai, Fernando, usuário do app), Hoppinha (mãe, Julia), Hoppinho (filho, Bernardo, 3 anos e meio, 97cm, usa carrinho)
 
 PERFIL DO BE:
 - AMA: Carros/McQueen (paixão absoluta), Star Wars, Mickey Roadster Racers, dinossauros, animais
-- Leve desconforto com escuro/fechado mas não bloqueia — NUNCA filtrar atração por causa dele
+- Leve desconforto com escuro mas não bloqueia — NUNCA filtrar atração por causa dele
 - Para cada atração: informar restrição de altura real + se Kids Switch está disponível
 - Sempre deixar os pais decidirem
 
 PERFIL ADULTOS:
-- Experientes em Disney (múltiplas visitas) — não explicar básico Disney
+- Experientes em Disney (múltiplas visitas) — NÃO explicar básico Disney
 - Pouca experiência Universal — SEMPRE explicar Universal proativamente
 - Comparar Universal com Disney: "Express Pass = Lightning Lane Single Pass, mas usa 1x por atração por dia"
 - Ambos topam adrenalina total, fazem Kids Switch em tudo
 - Ritmo intenso, acordam 7h, querem fazer TUDO
 
 HOTÉIS E DATAS:
-- 28/04–05/05: All Star Movies Resort (HOTEL DISNEY = Early Entry 30min antes em qualquer parque Disney)
-- 05/05–14/05: Monreale Hotel (FORA = SEM Early Entry, roteiro muda)
-- Ingressos Disney: 1 parque por dia (sem Park Hopper)
-- Ingressos Universal: 14 dias com acesso aos 3 parques
+- 28/04 a 05/05: All Star Movies Resort — HOTEL DISNEY = Early Entry 30min antes
+- 05/05 a 14/05: Monreale Hotel — FORA Disney = SEM Early Entry
+- Ingressos Disney: 1 parque por dia
+- Ingressos Universal: 14 dias, 3 parques
+- Ingresso Legoland: 1 dia, 1 parque
 
-CRONOGRAMA SUGERIDO:
-- 28/04 (ter): Magic Kingdom — Early Entry ativo
-- 29/04 (qua): Animal Kingdom — Early Entry ativo  
-- 30/04 (qui): EPCOT — Early Entry ativo + Flower & Garden Festival
-- 01/05 (sex): Hollywood Studios — Early Entry ativo
-- 02/05 (sáb): Magic Kingdom (2ª visita) — Early Entry ativo
-- 03/05 (dom): Universal Studios Florida
-- 04/05 (seg): ⚔️ HOLLYWOOD STUDIOS — MAY THE 4TH (FIXO IMUTÁVEL)
-- 05/05 (ter): Islands of Adventure
-- 06/05 (qua): LEGOLAND (dia do Be)
-- 07/05 (qui): Epic Universe
-- 08/05 (sex): Animal Kingdom (2ª visita)
-- 09/05 (sáb): EPCOT (2ª visita)
-- 10/05 (dom): Universal Studios Florida (2ª visita)
-- 11/05 (seg): Magic Kingdom (3ª visita)
-- 12/05 (ter): Islands of Adventure (2ª visita)
-- 13/05 (qua): Epic Universe (2ª visita)
+CRONOGRAMA:
+- 29/04: EPCOT (Early Entry) + Flower & Garden Festival + Almoço no Garden Grill Restaurant (Ajudar na reserva)
+- 30/04: Magic Kingdom (Early Entry) + Almoço no Tony's reserva deve ser as 11h30 para assistir o final da Parade na varanda
+- 01/05: Rest Day
+- 02/05: Animal Kingdom (Early Entry) 
+- 03/05: Rest Day
+- 04/05: ⚔️ HOLLYWOOD STUDIOS — MAY THE 4TH — DIA FIXO IMUTÁVEL - Savis WorkShop, Garantir o Sabre de Luz
+- 05/05: Troca de Hotel e Rest Day
+- 06/05: LEGOLAND — dia do Be
+- 07/05: Breakfast with Chefs Mickey - Ajudar a agendar
+- 08/05: Island of Adventure
+- 09/05: Rest Day + Disney BoardWalk
+- 10/05: Universal Studios Florida
+- 11/05: Rest Day
+- 12/05: Epic Universe 1ª visita
+- 13/05: Epic Universe 2ª visita
+- 14/05: Voo de Volta ao Brasil
 
 MUST-HAVES ABSOLUTOS:
-1. 04/05 Hollywood Studios MAY THE 4TH:
-   - Savi's Workshop (sabre de luz) — RESERVA OBRIGATÓRIA no app My Disney Experience. Custo ~$299. Se não reservado ainda, ALERTAR URGENTEMENTE que precisa fazer agora (reservas abrem 60 dias antes = 03/03/2026 — já passou, verificar disponibilidade imediatamente)
-   - McQueen's Racing Academy — Be vai ENLOUQUECER
-   - Galaxy's Edge completo — Millennium Falcon, ambiente, comida
-   
+1. 04/05 May the 4th — Hollywood Studios:
+   - Savi's Workshop (sabre de luz): RESERVA OBRIGATÓRIA no app My Disney Experience (~$299). Se não reservado, ALERTAR URGÊNCIA MÁXIMA.
+   - McQueen's Racing Academy: Be vai enlouquecer
+   - Millennium Falcon Smugglers Run: Be pilota a nave
+
 2. Magic Kingdom — Tony's Town Square Restaurant:
    - Almoço às 12h em ponto
-   - PEDIR MESA NA VARANDA (Balcony View) ao fazer reserva e ao chegar
-   - Para assistir o fim da Mickey's Magical Friendship Faire parade sentados com vista
-   - Considerar deslocamento para chegar com 15min de antecedência
-   - Reservar no app My Disney Experience, seção Dining, com 60 dias de antecedência
+   - PEDIR MESA NA VARANDA (Balcony View) para ver a parade sentados
+   - Reservar no app My Disney Experience com 60 dias de antecedência
 
 3. Epic Universe — Toadstool Café (Nintendo World): reservar com antecedência
 
-MUST-HAVES SECUNDÁRIOS (prioridade alta):
-- Test Track EPCOT (Be ama carro de corrida — momento mágico garantido)
-- Millennium Falcon: Smugglers Run (Be pilota — 38" mínimo, deve atingir)
-- Tomorrowland Speedway Magic Kingdom (Be "dirige" — momento mágico)
+MUST-HAVES SECUNDÁRIOS:
+- Test Track EPCOT (Be ama carro de corrida)
+- Tomorrowland Speedway Magic Kingdom (Be dirige)
 - Expedition Everest + Kids Switch
-- Raptor Encounter Islands of Adventure (Be adora dinos — foto com raptor)
-- Encontro com Toothless Epic Universe (animatrônico realista — Be vai amar)
+- Raptor Encounter Islands of Adventure (Be adora dinos)
+- Encontro com Toothless Epic Universe
 - Yoshi's Adventure + Power-Up Bands Nintendo World
-- Dragon Racer's Rally Epic Universe (Be controla asas do dragão)
-- Na'vi River Journey (sem restrição, visual deslumbrante — pode reclamar do escuro mas vai adorar)
-- McQueen's Racing Academy Hollywood Studios
+- Dragon Racer's Rally Epic Universe
+- Na'vi River Journey Animal Kingdom
 
 LEGOLAND 06/05:
-- Parque ideal para Be (público 2-12 anos)
-- Prioridades: DUPLO Valley (crianças pequenas, Be pode fazer tudo), LEGO City, The Dragon coaster (32" mínimo)
-- Chegada às 10h na abertura, saída ~17h
-- Sem Early Entry para vocês
+- Público 2-12 anos — Be é o foco total
+- Prioridades: DUPLO Valley, LEGO City, The Dragon (32" mínimo)
+- Chegada às 10h, saída ~17h
 
-EPCOT BÔNUS:
-- Flower & Garden Festival até 01/junho — topiários de Buzz, Woody, Simba e +60 personagens
-- Butterfly Landing: borboletas pousam no Be (incluído no ingresso)
-- Scavenger hunt Spike the Bee — perfeito para o Be
-- Test Track: Be ama, prioridade máxima de manhã
+HACKS:
+- Tony's 12h = parade view da varanda
+- Magic Kingdom: entrar pela esquerda (Tomorrowland) = 40% menos fila
+- Early Entry: primeiros 90min têm 40-60% menos fila (só até 05/05)
+- Kids Switch: adulto 1 entra → adulto 2 usa passe sem fila
+- Chuvas rápidas em Orlando 14-16h: indoor de tarde
+- Buscar hacks específicos de cada parque do dia
 
-HACKS QUE O AGENTE DEVE CONHECER E BUSCAR:
-- Tony's 12h = parade view da varanda (o hack da família)
-- Entrar pela esquerda no Magic Kingdom (Tomorrowland) = 40% menos fila
-- Early Entry = primeiros 90min têm 40-60% menos fila
-- Kids Switch: adulto 1 entra, sai, adulto 2 entra com passe sem fila
-- Kali River Rapids = todos molham, levar roupa extra
-- Buscar ATIVAMENTE hacks específicos do parque do dia antes de cada visita
-- Em parques Disney lotados: fazer atrações ao ar livre de manhã, indoor de tarde (chuvas 14-16h)
-- No Universal: chegar cedo no Epic Universe (1 ano aberto, filas ainda imprevisíveis)
-
-REGRAS CRÍTICAS:
-1. NUNCA filtrar atração por ser pequeno/jovem — só informar altura mínima e deixar decidir
-2. Be AMA McQueen — qualquer menção a carros/corrida é prioridade emocional máxima
-3. May the 4th = Hollywood Studios FIXO, não mover por nada
+REGRAS:
+1. NUNCA filtrar atração por tamanho/idade — só informar e deixar decidir
+2. Be AMA McQueen — qualquer coisa de corrida é prioridade emocional
+3. May the 4th = Hollywood Studios FIXO
 4. Savi's Workshop = alertar urgência se não confirmado
-5. Early Entry só funciona até 05/05 (All Star Movies)
-6. Universal: explicar tudo proativamente, nunca assumir que sabem
-7. Se atração quebrar: recalcular rota imediatamente com alternativas concretas
-8. Incluir instrução do app (Disney Experience ou Universal) quando relevante
-9. Considerar carrinho do Be em deslocamentos e filas
+5. Early Entry só funciona até 05/05
+6. Universal: explicar tudo proativamente sempre
+7. Se atração quebrar: recalcular rota com alternativas concretas
+8. Incluir instrução do app quando relevante
+9. Considerar carrinho do Be
+10. Considerar melhores rotas dentro do parque para todos os roteiros 
+11. Pesquisar sempre as filas de cada atração e desenhar os roteiros otimizando o tempo sempre
 
-CLIMA ORLANDO MAIO: 27-32°C, úmido. Chuvas rápidas 14-16h. Indoor de tarde.
+CLIMA MAIO ORLANDO: 27-32°C. Chuvas rápidas 14-16h. Indoor de tarde.
 
-RESPONDA SEMPRE:
-- Português do Brasil
-- Direto e prático, sem introduções longas
-- Próxima ação concreta primeiro
-- Máximo 4 parágrafos (tela de celular)
-- Emojis moderados para escaneamento rápido`;
+RESPONDA: Português do Brasil. Direto e prático. Próxima ação concreta primeiro. Máximo 4 parágrafos. Emojis moderados.`;
 
 let history = [];
 let busy = false;
 
-// AUTO-RESIZE TEXTAREA
-const input = document.getElementById('input');
-input.addEventListener('input', () => {
-  input.style.height = 'auto';
-  input.style.height = Math.min(input.scrollHeight, 120) + 'px';
-  document.getElementById('send-btn').disabled = input.value.trim() === '' || busy;
-});
-input.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!busy) send(); }
-});
+// PARK MAP
+const PARKS = {
+  '2026-04-28': 'Arrival / Rest Day',
+  '2026-04-29': 'EPCOT 🌸',
+  '2026-04-30': 'Magic Kingdom 🏰',
+  '2026-05-01': 'Rest Day',
+  '2026-05-02': 'Animal Kingdom 🌿',
+  '2026-05-03': 'Rest Day',
+  '2026-05-04': 'Hollywood Studios ⚔️ (May the 4th)',
+  '2026-05-05': 'Hotel Change / Rest Day',
+  '2026-05-06': 'Legoland 🧱',
+  '2026-05-07': 'Chef Mickey’s Breakfast 🥞',
+  '2026-05-08': 'Islands of Adventure 🦖',
+  '2026-05-09': 'Rest Day / Disney BoardWalk 🎡',
+  '2026-05-10': 'Universal Studios Florida 🎬',
+  '2026-05-11': 'Rest Day',
+  '2026-05-12': 'Epic Universe ⚡',
+  '2026-05-13': 'Epic Universe ⚡'
+};
+
+const PARK_IDS = {
+  'Magic Kingdom':'6','EPCOT':'5','Hollywood Studios':'7','Animal Kingdom':'8',
+  'Universal Studios Florida':'13','Islands of Adventure':'14','Epic Universe':'687','Legoland':'13261'
+};
 
 // INIT
-window.addEventListener('load', () => {
-  setStatus('online');
-  detectDay();
-  welcome();
+document.addEventListener('DOMContentLoaded', function() {
+  // textarea auto resize
+  var inp = document.getElementById('inp');
+  inp.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    document.getElementById('sbtn').disabled = this.value.trim() === '' || busy;
+  });
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!busy && this.value.trim()) send();
+    }
+  });
+
+  // detectar dia
+  var today = new Date().toISOString().split('T')[0];
+  var park = PARKS[today];
+  if (park) {
+    document.getElementById('hdr-sub').textContent = park + ' · Be, Ju & Você';
+  }
+
+  // mensagem de boas vindas
+  setTimeout(function() {
+    var msg;
+    if (today === '2026-05-04') {
+      msg = '⚔️ **MAY THE 4TH BE WITH YOU!**\n\nHoje é o dia mais especial da viagem — Hollywood Studios está esperando vocês.\n\n**Checklist urgente:**\n• Savi\'s Workshop: horário reservado?\n• McQueen\'s Racing Academy: primeiro horário disponível\n• Galaxy\'s Edge: rope drop obrigatório\n\nO que posso ajudar agora?';
+    } else if (today === '2026-05-06') {
+      msg = '🧱 **Dia do Be no Legoland!**\n\nHoje o parque é do Be — foi feito pra ele.\n\n**Prioridades:** DUPLO Valley primeiro, depois LEGO City e The Dragon. Chegada às 10h na abertura.\n\nQuer o briefing completo?';
+    } else {
+      var h = new Date().getHours();
+      var g = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
+      msg = g + '! 🎢 Hoppolino ativo.\n\nEstou aqui para filas, roteiro, hacks e imprevistos' + (park ? ' no **' + park.replace(' ⚔️','').replace(' 🧱','') + '**' : '') + '. Use os botões acima ou pergunta qualquer coisa.\n\nQuer o briefing completo do dia?';
+    }
+    addMsg('agent', msg);
+  }, 100);
 });
 
-function detectDay() {
-  const today = new Date().toISOString().split('T')[0];
-  const map = {
-    '2026-04-28': 'Magic Kingdom', '2026-04-29': 'Animal Kingdom',
-    '2026-04-30': 'EPCOT', '2026-05-01': 'Hollywood Studios',
-    '2026-05-02': 'Magic Kingdom', '2026-05-03': 'Universal Studios Florida',
-    '2026-05-04': 'Hollywood Studios ⚔️', '2026-05-05': 'Islands of Adventure',
-    '2026-05-06': 'Legoland 🧱', '2026-05-07': 'Epic Universe',
-    '2026-05-08': 'Animal Kingdom', '2026-05-09': 'EPCOT',
-    '2026-05-10': 'Universal Studios', '2026-05-11': 'Magic Kingdom',
-    '2026-05-12': 'Islands of Adventure', '2026-05-13': 'Epic Universe',
-  };
-  const park = map[today];
-  if (park) document.getElementById('header-sub').textContent = park + ' · Be, Ju & Você';
-}
-
-function welcome() {
-  const today = new Date().toISOString().split('T')[0];
-  let msg;
-  if (today === '2026-05-04') {
-    msg = `⚔️ **MAY THE 4TH BE WITH YOU!**\n\nHoje é o dia mais especial da viagem — Hollywood Studios está esperando vocês.\n\n**Checklist urgente de hoje:**\n• Savi's Workshop: horário reservado?\n• McQueen's Racing Academy: primeiro horário disponível\n• Galaxy's Edge: rope drop é obrigatório\n\nO que posso ajudar agora?`;
-  } else if (today === '2026-05-06') {
-    msg = `🧱 **Dia do Be no Legoland!**\n\nO parque foi feito pra ele — hoje é dia de Be ser o rei.\n\n**Prioridades:** DUPLO Valley primeiro (crianças pequenas), depois LEGO City e The Dragon. Chegada na abertura às 10h.\n\nQuer o briefing completo?`;
-  } else {
-    const h = new Date().getHours();
-    const g = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
-    msg = `${g}! 🎢 Co-Piloto ativo.\n\nEstou aqui para filas, roteiro, hacks, imprevistos e tudo da Universal que precisarem. Use os botões acima ou pergunta qualquer coisa.\n\nQuer o briefing do dia de hoje?`;
-  }
-  addMsg('agent', msg);
-}
-
 // FETCH FILAS
+function getParkId(parkName) {
+  for (var k in PARK_IDS) {
+    if (parkName && parkName.includes(k.split(' ')[0])) return PARK_IDS[k];
+  }
+  return null;
+}
+
 async function getWaits(parkName) {
-  const slugs = {
-    'Magic Kingdom': '6', 'EPCOT': '5', 'Hollywood Studios': '7',
-    'Animal Kingdom': '8', 'Universal Studios Florida': '13',
-    'Islands of Adventure': '14', 'Epic Universe': '687',
-    'Legoland': '13261',
-  };
-  const id = Object.keys(slugs).find(k => parkName.includes(k.split(' ')[0]));
+  var id = getParkId(parkName);
   if (!id) return null;
   try {
-    const r = await fetch(`https://queue-times.com/parks/${slugs[id]}/queue_times.json`);
+    var r = await fetch('https://queue-times.com/parks/' + id + '/queue_times.json');
     if (!r.ok) return null;
     return await r.json();
-  } catch { return null; }
+  } catch(e) { return null; }
 }
 
-function waitCard(data, parkName) {
-  if (!data?.lands) return '';
-  const rides = data.lands.flatMap(l => l.rides.map(r => ({ ...r, land: l.name })));
-  rides.sort((a, b) => (b.is_open - a.is_open) || (b.wait_time - a.wait_time));
-  const top = rides.slice(0, 10);
-  let html = `<div class="wait-card"><div class="wait-card-title">● AO VIVO — ${parkName} · ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</div>`;
-  for (const r of top) {
-    const cls = !r.is_open ? 'w-off' : r.wait_time <= 20 ? 'w-low' : r.wait_time <= 45 ? 'w-med' : 'w-high';
-    const wt = !r.is_open ? 'Fechada' : r.wait_time === 0 ? 'Walk-in' : `${r.wait_time}min`;
-    html += `<div class="wait-item"><span>${r.name}</span><span class="wait-badge ${cls}">${wt}</span></div>`;
-  }
+function makeWaitCard(data, parkName) {
+  if (!data || !data.lands) return '';
+  var rides = [];
+  data.lands.forEach(function(l) {
+    l.rides.forEach(function(r) { rides.push(r); });
+  });
+  rides.sort(function(a,b) { return (b.is_open - a.is_open) || (b.wait_time - a.wait_time); });
+  var top = rides.slice(0, 10);
+  var now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  var html = '<div class="wcard"><div class="wcard-title">● AO VIVO — ' + parkName + ' · ' + now + '</div>';
+  top.forEach(function(r) {
+    var cls = !r.is_open ? 'wo' : r.wait_time <= 20 ? 'wl' : r.wait_time <= 45 ? 'wm' : 'wh';
+    var wt = !r.is_open ? 'Fechada' : r.wait_time === 0 ? 'Walk-in' : r.wait_time + 'min';
+    html += '<div class="wi"><span>' + r.name + '</span><span class="wb ' + cls + '">' + wt + '</span></div>';
+  });
   return html + '</div>';
 }
 
 function waitSummary(data) {
-  if (!data?.lands) return '';
-  return data.lands.flatMap(l => l.rides.map(r =>
-    `${r.name}: ${!r.is_open ? 'FECHADA' : r.wait_time === 0 ? 'Walk-in' : r.wait_time + 'min'}`
-  )).join('\n');
+  if (!data || !data.lands) return '';
+  var lines = [];
+  data.lands.forEach(function(l) {
+    l.rides.forEach(function(r) {
+      lines.push(r.name + ': ' + (!r.is_open ? 'FECHADA' : r.wait_time === 0 ? 'Walk-in' : r.wait_time + 'min'));
+    });
+  });
+  return lines.join('\n');
 }
 
-// ENVIAR
-async function send(text) {
+// SEND
+async function send(txt) {
   if (busy) return;
-  const t = text || input.value.trim();
+  var inp = document.getElementById('inp');
+  var t = txt || inp.value.trim();
   if (!t) return;
-  if (!text) { input.value = ''; input.style.height = 'auto'; }
-  document.getElementById('send-btn').disabled = true;
+
+  if (!txt) {
+    inp.value = '';
+    inp.style.height = 'auto';
+  }
+  document.getElementById('sbtn').disabled = true;
 
   addMsg('user', t);
-  setStatus('thinking');
-  showTyping(true);
+  setBusy(true);
 
-  // Detectar parque atual pela data
-  const today = new Date().toISOString().split('T')[0];
-  const parkMap = {
-    '2026-04-28':'Magic Kingdom','2026-04-29':'Animal Kingdom','2026-04-30':'EPCOT',
-    '2026-05-01':'Hollywood Studios','2026-05-02':'Magic Kingdom','2026-05-03':'Universal Studios Florida',
-    '2026-05-04':'Hollywood Studios','2026-05-05':'Islands of Adventure','2026-05-06':'Legoland',
-    '2026-05-07':'Epic Universe','2026-05-08':'Animal Kingdom','2026-05-09':'EPCOT',
-    '2026-05-10':'Universal Studios Florida','2026-05-11':'Magic Kingdom',
-    '2026-05-12':'Islands of Adventure','2026-05-13':'Epic Universe',
-  };
-  const park = parkMap[today];
+  // detectar parque hoje
+  var today = new Date().toISOString().split('T')[0];
+  var park = PARKS[today] ? PARKS[today].replace(' ⚔️','').replace(' 🧱','') : null;
 
-  // Buscar filas se relevante
-  let liveCtx = '';
-  let cardHtml = '';
+  // buscar filas se relevante
+  var liveCtx = '';
+  var cardHtml = '';
   if (/fila|espera|wait|tempo|queue|quanto/i.test(t) && park) {
-    const data = await getWaits(park);
+    var data = await getWaits(park);
     if (data) {
-      liveCtx = `\n\n[DADOS AO VIVO — ${park} às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}]\n${waitSummary(data)}`;
-      cardHtml = waitCard(data, park);
+      var now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+      liveCtx = '\n\n[DADOS AO VIVO — ' + park + ' às ' + now + ']\n' + waitSummary(data);
+      cardHtml = makeWaitCard(data, park);
     }
   }
 
-  // Montar histórico
-  const msgs = [
-    ...history.slice(-12),
-    { role: 'user', content: t + liveCtx }
-  ];
+  var msgs = history.slice(-12).concat([{ role: 'user', content: t + liveCtx }]);
 
   try {
-    const res = await fetch('/api/chat', {
+    var res = await fetch('/api/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ messages: msgs, system: SYSTEM })
     });
 
-    const json = await res.json();
-    if (!res.ok) throw new Error(json.error || 'Erro no servidor');
+    var json = await res.json();
+    if (!res.ok) throw new Error(json.error || 'Erro ' + res.status);
 
-    const reply = json.text;
     history.push({ role: 'user', content: t });
-    history.push({ role: 'assistant', content: reply });
-    if (history.length > 24) history = history.slice(-24);
+    history.push({ role: 'assistant', content: json.text });
+    if (history.length > 20) history = history.slice(-20);
 
-    showTyping(false);
-    setStatus('online');
-    addMsg('agent', reply, cardHtml);
+    setBusy(false);
+    addMsg('agent', json.text, cardHtml);
 
-  } catch (err) {
-    showTyping(false);
-    setStatus('online');
-    addMsg('agent', `⚠️ Erro ao responder: ${err.message}\n\nVerifique sua conexão e tente novamente.`);
+  } catch(err) {
+    setBusy(false);
+    addMsg('agent', '⚠️ Erro: ' + err.message + '\n\nVerifique a conexão e tente de novo.');
   }
 
-  document.getElementById('send-btn').disabled = false;
+  document.getElementById('sbtn').disabled = false;
 }
 
 function qa(t) { send(t); }
 
-// UI
+// ADD MESSAGE
 function addMsg(role, text, extra) {
-  const container = document.getElementById('messages');
-  const div = document.createElement('div');
-  div.className = `msg ${role}`;
+  var msgs = document.getElementById('msgs');
+  var typ = document.getElementById('typ');
 
-  const av = document.createElement('div');
-  av.className = 'msg-avatar';
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+
+  var av = document.createElement('div');
+  av.className = 'av';
   av.textContent = role === 'agent' ? '🎢' : '👤';
 
-  const content = document.createElement('div');
-  content.className = 'msg-content';
+  var mc = document.createElement('div');
+  mc.className = 'mc';
 
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.innerHTML = fmt(text);
+  var bbl = document.createElement('div');
+  bbl.className = 'bbl';
+  bbl.innerHTML = fmt(text);
 
-  const time = document.createElement('div');
-  time.className = 'msg-time';
-  time.textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  var ts = document.createElement('div');
+  ts.className = 'ts';
+  ts.textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 
-  content.appendChild(bubble);
-  if (extra) { const e = document.createElement('div'); e.innerHTML = extra; content.appendChild(e); }
-  content.appendChild(time);
+  mc.appendChild(bbl);
+
+  if (extra) {
+    var ex = document.createElement('div');
+    ex.innerHTML = extra;
+    mc.appendChild(ex);
+  }
+
+  mc.appendChild(ts);
   div.appendChild(av);
-  div.appendChild(content);
+  div.appendChild(mc);
 
-  container.insertBefore(div, document.getElementById('typing'));
-  container.scrollTop = container.scrollHeight;
+  // inserir ANTES do typing indicator
+  msgs.insertBefore(div, typ);
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
 function fmt(t) {
   return t
-    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g,'<em>$1</em>')
-    .replace(/`([^`]+)`/g,'<code style="background:var(--bg3);padding:1px 5px;border-radius:4px;font-family:var(--mono);font-size:12px">$1</code>')
-    .replace(/\n/g,'<br>');
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`\n]+)`/g, '<code>$1</code>')
+    .replace(/\n/g, '<br>');
 }
 
-function showTyping(v) {
-  document.getElementById('typing').className = v ? 'visible' : '';
-  if (v) document.getElementById('messages').scrollTop = 999999;
-}
-
-function setStatus(s) {
-  busy = s === 'thinking';
-  document.getElementById('status-dot').className = s;
+function setBusy(v) {
+  busy = v;
+  var dot = document.getElementById('dot');
+  var typ = document.getElementById('typ');
+  dot.className = v ? 'busy' : '';
+  typ.className = v ? 'on' : '';
+  if (v) {
+    var msgs = document.getElementById('msgs');
+    msgs.scrollTop = msgs.scrollHeight;
+  }
 }
 </script>
 </body>
