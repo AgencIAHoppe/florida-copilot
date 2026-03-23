@@ -9,30 +9,26 @@
 <meta name="apple-mobile-web-app-title" content="Florida 2026">
 <meta name="theme-color" content="#0a0a0f">
 <title>Florida 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',sans-serif;font-size:15px;overflow:hidden}
-
 #app{display:flex;flex-direction:column;height:100dvh;max-width:480px;margin:0 auto}
 
-/* HEADER */
-#hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
 .hdr-l{display:flex;align-items:center;gap:10px}
 .logo{width:36px;height:36px;background:linear-gradient(135deg,#6c63ff,#f5c842);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.hdr-title{font-size:15px;font-weight:600;letter-spacing:-0.2px}
+.hdr-title{font-size:15px;font-weight:600}
 .hdr-sub{font-size:11px;color:#5a5870;font-family:'Space Mono',monospace}
-#dot{width:8px;height:8px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 6px #3ecf8e}
+#dot{width:8px;height:8px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 6px #3ecf8e;transition:all .3s}
 #dot.busy{background:#f5c842;box-shadow:0 0 6px #f5c842;animation:blink 1s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* QUICK */
-#quick{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.07);scrollbar-width:none}
+#quick{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.08);scrollbar-width:none}
 #quick::-webkit-scrollbar{display:none}
 .qbtn{display:flex;align-items:center;gap:5px;padding:7px 13px;background:#13131a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;color:#9997a8;font-size:12px;font-weight:500;white-space:nowrap;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0}
 .qbtn:active{opacity:.7}
 
-/* MESSAGES */
 #msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;-webkit-overflow-scrolling:touch}
 #msgs::-webkit-scrollbar{width:3px}
 #msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
@@ -40,24 +36,19 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
 .msg{display:flex;gap:10px;animation:up .2s ease}
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .msg.user{flex-direction:row-reverse}
-
 .av{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
 .msg.agent .av{background:linear-gradient(135deg,#6c63ff,#f5c842)}
 .msg.user .av{background:#1c1c26;border:1px solid rgba(255,255,255,0.12)}
-
 .mc{max-width:82%;display:flex;flex-direction:column;gap:4px}
 .msg.user .mc{align-items:flex-end}
-
-.bbl{padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.65}
-.msg.agent .bbl{background:#13131a;border:1px solid rgba(255,255,255,0.07);border-bottom-left-radius:4px}
+.bbl{padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.65;word-break:break-word}
+.msg.agent .bbl{background:#13131a;border:1px solid rgba(255,255,255,0.08);border-bottom-left-radius:4px}
 .msg.user .bbl{background:#6c63ff;border-bottom-right-radius:4px;color:#fff}
 .bbl strong{color:#fad96e;font-weight:600}
 .msg.user .bbl strong{color:#fff}
 .bbl code{background:#1c1c26;padding:1px 5px;border-radius:4px;font-family:'Space Mono',monospace;font-size:12px}
-
 .ts{font-size:10px;color:#5a5870;font-family:'Space Mono',monospace;padding:0 4px}
 
-/* WAIT CARD */
 .wcard{background:#1c1c26;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;margin-top:8px}
 .wcard-title{font-size:10px;font-weight:700;color:#3ecf8e;font-family:'Space Mono',monospace;letter-spacing:.05em;margin-bottom:10px}
 .wi{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:13px}
@@ -68,23 +59,21 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
 .wh{background:rgba(245,101,101,.15);color:#f56565}
 .wo{background:#13131a;color:#5a5870}
 
-/* TYPING */
-#typ{display:none;gap:10px;padding:0 16px 8px;align-items:center}
+#typ{display:none;gap:10px;padding:0 16px 8px;align-items:center;flex-shrink:0}
 #typ.on{display:flex}
 .tav{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#6c63ff,#f5c842);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.tbbl{background:#13131a;border:1px solid rgba(255,255,255,0.07);border-radius:16px;border-bottom-left-radius:4px;padding:12px 16px;display:flex;gap:5px;align-items:center}
+.tbbl{background:#13131a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;border-bottom-left-radius:4px;padding:12px 16px;display:flex;gap:5px;align-items:center}
 .td{width:6px;height:6px;border-radius:50%;background:#5a5870;animation:bounce 1.2s infinite}
 .td:nth-child(2){animation-delay:.2s}
 .td:nth-child(3){animation-delay:.4s}
 @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 
-/* INPUT */
-#inp-area{padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+#inp-area{padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0}
 #inp-row{display:flex;gap:10px;align-items:flex-end;background:#13131a;border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:10px 14px;transition:border-color .2s}
 #inp-row:focus-within{border-color:#6c63ff}
 #inp{flex:1;background:none;border:none;outline:none;color:#f0efe8;font-family:'DM Sans',sans-serif;font-size:15px;resize:none;max-height:120px;min-height:24px;line-height:1.5}
 #inp::placeholder{color:#5a5870}
-#sbtn{width:34px;height:34px;border-radius:50%;background:#6c63ff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;color:#fff}
+#sbtn{width:34px;height:34px;border-radius:50%;background:#6c63ff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;transition:all .15s}
 #sbtn:active{transform:scale(.92)}
 #sbtn:disabled{background:#1c1c26;cursor:not-allowed;opacity:.5}
 #sbtn svg{width:16px;height:16px}
@@ -94,7 +83,6 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
 </head>
 <body>
 <div id="app">
-
   <div id="hdr">
     <div class="hdr-l">
       <div class="logo">🎢</div>
@@ -110,17 +98,19 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
     <button class="qbtn" onclick="qa('Quais são as filas agora no parque de hoje?')">⏱️ Filas agora</button>
     <button class="qbtn" onclick="qa('Qual a próxima atração do roteiro de hoje?')">➡️ Próxima</button>
     <button class="qbtn" onclick="qa('O Be está cansado agora. O que fazemos?')">😴 Be cansou</button>
-    <button class="qbtn" onclick="qa('Tem imprevistos ou reformas hoje que devo saber?')">⚠️ Imprevistos</button>
+    <button class="qbtn" onclick="qa('Tem imprevistos ou reformas hoje?')">⚠️ Imprevistos</button>
     <button class="qbtn" onclick="qa('Me dá o melhor hack para o parque de hoje.')">🎯 Hack do dia</button>
-    <button class="qbtn" onclick="qa('Explica o Express Pass da Universal comparando com o Lightning Lane Disney.')">🎟️ Universal 101</button>
-    <button class="qbtn" onclick="qa('Preciso de ajuda com o app My Disney Experience agora.')">📱 App Disney</button>
-    <button class="qbtn" onclick="qa('Uma atração fechou ou quebrou. Recalcula o roteiro de hoje.')">🔄 Rota quebrou</button>
+    <button class="qbtn" onclick="qa('Explica o Express Pass da Universal comparando com Lightning Lane Disney.')">🎟️ Universal 101</button>
+    <button class="qbtn" onclick="qa('Como uso o app My Disney Experience agora?')">📱 App Disney</button>
+    <button class="qbtn" onclick="qa('Uma atração fechou. Recalcula o roteiro de hoje.')">🔄 Rota quebrou</button>
   </div>
 
+  <!-- ÁREA DE MENSAGENS - sem elemento #typ dentro -->
   <div id="msgs">
     <div class="daybanner">CO-PILOTO ATIVO · FLORIDA 2026</div>
   </div>
 
+  <!-- TYPING INDICATOR - FORA do #msgs -->
   <div id="typ">
     <div class="tav">🎢</div>
     <div class="tbbl">
@@ -141,181 +131,107 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
       </button>
     </div>
   </div>
-
 </div>
+
 <script>
-const SYSTEM = `Você é o Guia de viagem da família Hoppe para as Férias de 2026.
+var SYSTEM = "Voce e o Guia de viagem da Familia Hoppe para as Ferias de 2026.\n\nFAMILIA: Fernando Hoppe (Pai, usuario do app), Julia Hoppe (mae, Hoppinha), Bernardo Hoppe / Be (filho, 3 anos e meio, 97cm, usa carrinho)\n\nPERFIL DO BE:\n- AMA: Carros/McQueen (paixao absoluta), Star Wars, Mickey Roadster Racers, dinossauros, animais\n- Leve desconforto com escuro mas nao bloqueia — NUNCA filtrar atracao por causa dele\n- Para cada atracao: informar restricao de altura real + se Kids Switch esta disponivel\n- Sempre deixar os pais decidirem\n\nPERFIL ADULTOS:\n- Experientes em Disney (multiplas visitas) — NAO explicar basico Disney\n- Pouca experiencia Universal — SEMPRE explicar Universal proativamente\n- Comparar Universal com Disney: Express Pass = Lightning Lane Single Pass, mas usa 1x por atracao por dia\n- Ambos topam adrenalina total, fazem Kids Switch em tudo\n- Ritmo intenso, acordam 7h, querem fazer TUDO\n\nHOTEIS E DATAS:\n- 28/04 a 05/05: All Star Movies Resort — HOTEL DISNEY = Early Entry 30min antes\n- 05/05 a 14/05: Monreale Hotel — FORA Disney = SEM Early Entry\n- Ingressos Disney: 1 parque por dia\n- Ingressos Universal: 14 dias, 3 parques\n- Ingresso Legoland: 1 dia\n\nCRONOGRAMA:\n- 28/04: Chegada / Rest Day\n- 29/04: EPCOT (Early Entry) + Flower & Garden Festival + Almoco no Garden Grill Restaurant (ajudar na reserva)\n- 30/04: Magic Kingdom (Early Entry) + Almoco no Tony's as 11h30, pedir mesa na varanda para ver o final da Parade\n- 01/05: Rest Day\n- 02/05: Animal Kingdom (Early Entry)\n- 03/05: Rest Day\n- 04/05: HOLLYWOOD STUDIOS — MAY THE 4TH — DIA FIXO IMUTAVEL — Savis Workshop, garantir o sabre de luz\n- 05/05: Troca de hotel / Rest Day\n- 06/05: LEGOLAND — dia do Be\n- 07/05: Breakfast with Chef Mickey — ajudar a agendar\n- 08/05: Islands of Adventure\n- 09/05: Rest Day + Disney BoardWalk\n- 10/05: Universal Studios Florida\n- 11/05: Rest Day\n- 12/05: Epic Universe 1a visita\n- 13/05: Epic Universe 2a visita\n- 14/05: Voo de volta ao Brasil\n\nMUST-HAVES ABSOLUTOS:\n1. 04/05 May the 4th — Hollywood Studios:\n   - Savi's Workshop (sabre de luz): RESERVA OBRIGATORIA no app My Disney Experience (~$299). Se nao reservado, ALERTAR URGENCIA MAXIMA.\n   - McQueen's Racing Academy: Be vai enlouquecer\n   - Millennium Falcon Smugglers Run: Be pilota a nave\n2. Magic Kingdom — Tony's Town Square Restaurant:\n   - Almoco as 11h30\n   - PEDIR MESA NA VARANDA (Balcony View) para ver a parade sentados\n   - Reservar no app My Disney Experience com 60 dias de antecedencia\n3. EPCOT — Garden Grill Restaurant: reservar com antecedencia\n4. Epic Universe — Toadstool Cafe (Nintendo World): reservar com antecedencia\n5. Breakfast with Chef Mickey (07/05): reservar com antecedencia no app My Disney Experience\n\nMUST-HAVES SECUNDARIOS:\n- Test Track EPCOT (Be ama carro de corrida)\n- Tomorrowland Speedway Magic Kingdom (Be dirige)\n- Expedition Everest + Kids Switch\n- Raptor Encounter Islands of Adventure (Be adora dinos)\n- Encontro com Toothless Epic Universe\n- Yoshi's Adventure + Power-Up Bands Nintendo World\n- Dragon Racer's Rally Epic Universe\n- Na'vi River Journey Animal Kingdom\n\nLEGOLAND 06/05:\n- Publico 2-12 anos — Be e o foco total\n- Prioridades: DUPLO Valley, LEGO City, The Dragon (32\" minimo)\n- Chegada as 10h, saida ~17h\n\nDISNEY BOARDWALK 09/05:\n- Area de entretenimento entre EPCOT e Hollywood Studios\n- Restaurantes, bares, mini-golf, boardwalk a beira do lago\n- Nao precisa de ingresso de parque\n- Otimo para jantar e passear com o Be a noite\n\nHACKS:\n- Tony's 11h30 = parade view da varanda (reserva Balcony View)\n- Magic Kingdom: entrar pela esquerda (Tomorrowland) = 40% menos fila\n- Early Entry: primeiros 90min tem 40-60% menos fila (so ate 05/05)\n- Kids Switch: adulto 1 entra, adulto 2 usa passe sem fila\n- Chuvas rapidas em Orlando 14-16h: indoor de tarde\n- Buscar hacks especificos de cada parque do dia\n- Pesquisar filas e desenhar roteiros otimizando tempo\n\nREGRAS:\n1. NUNCA filtrar atracao por tamanho/idade — so informar e deixar decidir\n2. Be AMA McQueen — qualquer coisa de corrida e prioridade emocional\n3. May the 4th = Hollywood Studios FIXO\n4. Savi's Workshop = alertar urgencia se nao confirmado\n5. Early Entry so funciona ate 05/05 (All Star Movies)\n6. Universal: explicar tudo proativamente sempre\n7. Se atracao quebrar: recalcular rota com alternativas concretas\n8. Incluir instrucao do app quando relevante\n9. Considerar carrinho do Be\n10. Considerar melhores rotas dentro do parque para todos os roteiros\n11. Pesquisar sempre as filas de cada atracao e desenhar roteiros otimizando o tempo\n\nCLIMA MAIO ORLANDO: 27-32C. Chuvas rapidas 14-16h. Indoor de tarde.\n\nRESPONDA: Portugues do Brasil. Direto e pratico. Proxima acao concreta primeiro. Maximo 4 paragrafos. Emojis moderados.";
 
-FAMÍLIA: Hoppe (Pai, Fernando, usuário do app), Hoppinha (mãe, Julia), Hoppinho (filho, Bernardo, 3 anos e meio, 97cm, usa carrinho)
+var history = [];
+var busy = false;
 
-PERFIL DO BE:
-- AMA: Carros/McQueen (paixão absoluta), Star Wars, Mickey Roadster Racers, dinossauros, animais
-- Leve desconforto com escuro mas não bloqueia — NUNCA filtrar atração por causa dele
-- Para cada atração: informar restrição de altura real + se Kids Switch está disponível
-- Sempre deixar os pais decidirem
-
-PERFIL ADULTOS:
-- Experientes em Disney (múltiplas visitas) — NÃO explicar básico Disney
-- Pouca experiência Universal — SEMPRE explicar Universal proativamente
-- Comparar Universal com Disney: "Express Pass = Lightning Lane Single Pass, mas usa 1x por atração por dia"
-- Ambos topam adrenalina total, fazem Kids Switch em tudo
-- Ritmo intenso, acordam 7h, querem fazer TUDO
-
-HOTÉIS E DATAS:
-- 28/04 a 05/05: All Star Movies Resort — HOTEL DISNEY = Early Entry 30min antes
-- 05/05 a 14/05: Monreale Hotel — FORA Disney = SEM Early Entry
-- Ingressos Disney: 1 parque por dia
-- Ingressos Universal: 14 dias, 3 parques
-- Ingresso Legoland: 1 dia, 1 parque
-
-CRONOGRAMA:
-- 29/04: EPCOT (Early Entry) + Flower & Garden Festival + Almoço no Garden Grill Restaurant (Ajudar na reserva)
-- 30/04: Magic Kingdom (Early Entry) + Almoço no Tony's reserva deve ser as 11h30 para assistir o final da Parade na varanda
-- 01/05: Rest Day
-- 02/05: Animal Kingdom (Early Entry) 
-- 03/05: Rest Day
-- 04/05: ⚔️ HOLLYWOOD STUDIOS — MAY THE 4TH — DIA FIXO IMUTÁVEL - Savis WorkShop, Garantir o Sabre de Luz
-- 05/05: Troca de Hotel e Rest Day
-- 06/05: LEGOLAND — dia do Be
-- 07/05: Breakfast with Chefs Mickey - Ajudar a agendar
-- 08/05: Island of Adventure
-- 09/05: Rest Day + Disney BoardWalk
-- 10/05: Universal Studios Florida
-- 11/05: Rest Day
-- 12/05: Epic Universe 1ª visita
-- 13/05: Epic Universe 2ª visita
-- 14/05: Voo de Volta ao Brasil
-
-MUST-HAVES ABSOLUTOS:
-1. 04/05 May the 4th — Hollywood Studios:
-   - Savi's Workshop (sabre de luz): RESERVA OBRIGATÓRIA no app My Disney Experience (~$299). Se não reservado, ALERTAR URGÊNCIA MÁXIMA.
-   - McQueen's Racing Academy: Be vai enlouquecer
-   - Millennium Falcon Smugglers Run: Be pilota a nave
-
-2. Magic Kingdom — Tony's Town Square Restaurant:
-   - Almoço às 12h em ponto
-   - PEDIR MESA NA VARANDA (Balcony View) para ver a parade sentados
-   - Reservar no app My Disney Experience com 60 dias de antecedência
-
-3. Epic Universe — Toadstool Café (Nintendo World): reservar com antecedência
-
-MUST-HAVES SECUNDÁRIOS:
-- Test Track EPCOT (Be ama carro de corrida)
-- Tomorrowland Speedway Magic Kingdom (Be dirige)
-- Expedition Everest + Kids Switch
-- Raptor Encounter Islands of Adventure (Be adora dinos)
-- Encontro com Toothless Epic Universe
-- Yoshi's Adventure + Power-Up Bands Nintendo World
-- Dragon Racer's Rally Epic Universe
-- Na'vi River Journey Animal Kingdom
-
-LEGOLAND 06/05:
-- Público 2-12 anos — Be é o foco total
-- Prioridades: DUPLO Valley, LEGO City, The Dragon (32" mínimo)
-- Chegada às 10h, saída ~17h
-
-HACKS:
-- Tony's 12h = parade view da varanda
-- Magic Kingdom: entrar pela esquerda (Tomorrowland) = 40% menos fila
-- Early Entry: primeiros 90min têm 40-60% menos fila (só até 05/05)
-- Kids Switch: adulto 1 entra → adulto 2 usa passe sem fila
-- Chuvas rápidas em Orlando 14-16h: indoor de tarde
-- Buscar hacks específicos de cada parque do dia
-
-REGRAS:
-1. NUNCA filtrar atração por tamanho/idade — só informar e deixar decidir
-2. Be AMA McQueen — qualquer coisa de corrida é prioridade emocional
-3. May the 4th = Hollywood Studios FIXO
-4. Savi's Workshop = alertar urgência se não confirmado
-5. Early Entry só funciona até 05/05
-6. Universal: explicar tudo proativamente sempre
-7. Se atração quebrar: recalcular rota com alternativas concretas
-8. Incluir instrução do app quando relevante
-9. Considerar carrinho do Be
-10. Considerar melhores rotas dentro do parque para todos os roteiros 
-11. Pesquisar sempre as filas de cada atração e desenhar os roteiros otimizando o tempo sempre
-
-CLIMA MAIO ORLANDO: 27-32°C. Chuvas rápidas 14-16h. Indoor de tarde.
-
-RESPONDA: Português do Brasil. Direto e prático. Próxima ação concreta primeiro. Máximo 4 parágrafos. Emojis moderados.`;
-
-let history = [];
-let busy = false;
-
-// PARK MAP
-const PARKS = {
-  '2026-04-28': 'Arrival / Rest Day',
-  '2026-04-29': 'EPCOT 🌸',
-  '2026-04-30': 'Magic Kingdom 🏰',
-  '2026-05-01': 'Rest Day',
-  '2026-05-02': 'Animal Kingdom 🌿',
-  '2026-05-03': 'Rest Day',
-  '2026-05-04': 'Hollywood Studios ⚔️ (May the 4th)',
-  '2026-05-05': 'Hotel Change / Rest Day',
-  '2026-05-06': 'Legoland 🧱',
-  '2026-05-07': 'Chef Mickey’s Breakfast 🥞',
-  '2026-05-08': 'Islands of Adventure 🦖',
-  '2026-05-09': 'Rest Day / Disney BoardWalk 🎡',
-  '2026-05-10': 'Universal Studios Florida 🎬',
-  '2026-05-11': 'Rest Day',
-  '2026-05-12': 'Epic Universe ⚡',
-  '2026-05-13': 'Epic Universe ⚡'
+var PARKS = {
+  '2026-04-28':'Chegada',
+  '2026-04-29':'EPCOT',
+  '2026-04-30':'Magic Kingdom',
+  '2026-05-01':'Rest Day',
+  '2026-05-02':'Animal Kingdom',
+  '2026-05-03':'Rest Day',
+  '2026-05-04':'Hollywood Studios',
+  '2026-05-05':'Troca de Hotel',
+  '2026-05-06':'Legoland',
+  '2026-05-07':'Chef Mickey Breakfast',
+  '2026-05-08':'Islands of Adventure',
+  '2026-05-09':'Disney BoardWalk',
+  '2026-05-10':'Universal Studios Florida',
+  '2026-05-11':'Rest Day',
+  '2026-05-12':'Epic Universe',
+  '2026-05-13':'Epic Universe'
 };
 
-const PARK_IDS = {
+var PARK_IDS = {
   'Magic Kingdom':'6','EPCOT':'5','Hollywood Studios':'7','Animal Kingdom':'8',
-  'Universal Studios Florida':'13','Islands of Adventure':'14','Epic Universe':'687','Legoland':'13261'
+  'Universal Studios Florida':'13','Islands of Adventure':'14',
+  'Epic Universe':'687','Legoland':'13261'
 };
 
-// INIT
-document.addEventListener('DOMContentLoaded', function() {
-  // textarea auto resize
+// INIT - espera o DOM carregar completamente
+window.onload = function() {
+  // textarea resize
   var inp = document.getElementById('inp');
-  inp.addEventListener('input', function() {
+  inp.oninput = function() {
     this.style.height = 'auto';
     this.style.height = Math.min(this.scrollHeight, 120) + 'px';
     document.getElementById('sbtn').disabled = this.value.trim() === '' || busy;
-  });
-  inp.addEventListener('keydown', function(e) {
+  };
+  inp.onkeydown = function(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       if (!busy && this.value.trim()) send();
     }
-  });
+  };
 
-  // detectar dia
-  var today = new Date().toISOString().split('T')[0];
+  // detectar dia e atualizar header
+  var today = getToday();
   var park = PARKS[today];
   if (park) {
-    document.getElementById('hdr-sub').textContent = park + ' · Be, Ju & Você';
+    var label = park;
+    if (today === '2026-05-04') label = 'Hollywood Studios ⚔️';
+    if (today === '2026-05-06') label = 'Legoland 🧱';
+    document.getElementById('hdr-sub').textContent = label + ' · Be, Ju & Você';
   }
 
-  // mensagem de boas vindas
+  // mensagem de boas vindas com delay para garantir DOM pronto
   setTimeout(function() {
-    var msg;
-    if (today === '2026-05-04') {
-      msg = '⚔️ **MAY THE 4TH BE WITH YOU!**\n\nHoje é o dia mais especial da viagem — Hollywood Studios está esperando vocês.\n\n**Checklist urgente:**\n• Savi\'s Workshop: horário reservado?\n• McQueen\'s Racing Academy: primeiro horário disponível\n• Galaxy\'s Edge: rope drop obrigatório\n\nO que posso ajudar agora?';
-    } else if (today === '2026-05-06') {
-      msg = '🧱 **Dia do Be no Legoland!**\n\nHoje o parque é do Be — foi feito pra ele.\n\n**Prioridades:** DUPLO Valley primeiro, depois LEGO City e The Dragon. Chegada às 10h na abertura.\n\nQuer o briefing completo?';
-    } else {
-      var h = new Date().getHours();
-      var g = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
-      msg = g + '! 🎢 Hoppolino ativo.\n\nEstou aqui para filas, roteiro, hacks e imprevistos' + (park ? ' no **' + park.replace(' ⚔️','').replace(' 🧱','') + '**' : '') + '. Use os botões acima ou pergunta qualquer coisa.\n\nQuer o briefing completo do dia?';
-    }
-    addMsg('agent', msg);
-  }, 100);
-});
+    var h = new Date().getHours();
+    var g = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
+    var msg = '';
 
-// FETCH FILAS
-function getParkId(parkName) {
-  for (var k in PARK_IDS) {
-    if (parkName && parkName.includes(k.split(' ')[0])) return PARK_IDS[k];
-  }
-  return null;
+    if (today === '2026-05-04') {
+      msg = '⚔️ MAY THE 4TH BE WITH YOU, Família Hoppe!\n\nHoje é o dia mais especial da viagem — Hollywood Studios está esperando vocês.\n\nChecklist urgente:\n• Savi\'s Workshop: horário reservado?\n• McQueen\'s Racing Academy: primeiro horário disponível\n• Millennium Falcon: Be pilota a nave!\n\nO que posso ajudar agora?';
+    } else if (today === '2026-05-06') {
+      msg = '🧱 Dia do Bernardo no Legoland!\n\nHoje o parque é do Be — foi feito pra ele.\n\nPrioridades: DUPLO Valley primeiro, depois LEGO City e The Dragon. Chegada às 10h.\n\nQuer o briefing completo?';
+    } else if (today === '2026-05-07') {
+      msg = '🥞 Dia do Breakfast with Chef Mickey!\n\nUma das experiências mais mágicas para o Be — Mickey e turma em pessoa no café da manhã.\n\nReserva confirmada no app My Disney Experience?\n\nQuer ajuda com alguma coisa?';
+    } else if (today === '2026-04-29') {
+      msg = g + '! 🌸 Hoje é EPCOT + Flower & Garden Festival, Fernando!\n\nTopiários do Buzz, Woody, Simba e +60 personagens. O Be vai amar o Butterfly Landing!\n\nGarden Grill Restaurant reservado? Me avisa que ajudo agora.\n\nQuer o roteiro completo?';
+    } else if (today === '2026-04-30') {
+      msg = g + '! 🏰 Hoje é Magic Kingdom!\n\nLembra do hack do Tony\'s: reserva às 11h30, mesa na varanda (Balcony View) para ver a Parade sentados.\n\nEntrem pela esquerda (Tomorrowland) — 40% menos fila nos primeiros 30 minutos.\n\nQuer o roteiro completo?';
+    } else if (today === '2026-05-09') {
+      msg = g + '! 🎡 Dia de descanso + Disney BoardWalk!\n\nSem parque hoje. O BoardWalk à noite é ótimo para a família — sem ingresso, restaurantes à beira do lago.\n\nQuer sugestões do que fazer por lá?';
+    } else if (park && park !== 'Rest Day' && park !== 'Chegada' && park !== 'Troca de Hotel') {
+      msg = g + '! 🎢 Família Hoppe, hoje é dia de ' + park + '.\n\nEstou aqui para filas ao vivo, roteiro otimizado, hacks e imprevistos.\n\nQuer o briefing completo do dia?';
+    } else {
+      msg = g + '! 🎢 Guia da Família Hoppe — Florida 2026 ativo.\n\nRoteiro completo carregado: parques, must-haves, perfil do Be, hacks e Universal do zero.\n\nComo posso ajudar, Fernando?';
+    }
+
+    addMsg('agent', msg);
+  }, 300);
+};
+
+function getToday() {
+  return new Date().toISOString().split('T')[0];
 }
 
+function getParkToday() {
+  return PARKS[getToday()] || null;
+}
+
+// FILAS
 async function getWaits(parkName) {
-  var id = getParkId(parkName);
+  var id = null;
+  for (var k in PARK_IDS) {
+    if (parkName && parkName.indexOf(k.split(' ')[0]) >= 0) { id = PARK_IDS[k]; break; }
+  }
   if (!id) return null;
   try {
     var r = await fetch('https://queue-times.com/parks/' + id + '/queue_times.json');
@@ -327,40 +243,46 @@ async function getWaits(parkName) {
 function makeWaitCard(data, parkName) {
   if (!data || !data.lands) return '';
   var rides = [];
-  data.lands.forEach(function(l) {
-    l.rides.forEach(function(r) { rides.push(r); });
-  });
-  rides.sort(function(a,b) { return (b.is_open - a.is_open) || (b.wait_time - a.wait_time); });
+  for (var i = 0; i < data.lands.length; i++) {
+    var land = data.lands[i];
+    for (var j = 0; j < land.rides.length; j++) {
+      rides.push(land.rides[j]);
+    }
+  }
+  rides.sort(function(a,b){ return (b.is_open - a.is_open) || (b.wait_time - a.wait_time); });
   var top = rides.slice(0, 10);
   var now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   var html = '<div class="wcard"><div class="wcard-title">● AO VIVO — ' + parkName + ' · ' + now + '</div>';
-  top.forEach(function(r) {
+  for (var k = 0; k < top.length; k++) {
+    var r = top[k];
     var cls = !r.is_open ? 'wo' : r.wait_time <= 20 ? 'wl' : r.wait_time <= 45 ? 'wm' : 'wh';
     var wt = !r.is_open ? 'Fechada' : r.wait_time === 0 ? 'Walk-in' : r.wait_time + 'min';
-    html += '<div class="wi"><span>' + r.name + '</span><span class="wb ' + cls + '">' + wt + '</span></div>';
-  });
+    html += '<div class="wi"><span>' + escHtml(r.name) + '</span><span class="wb ' + cls + '">' + wt + '</span></div>';
+  }
   return html + '</div>';
 }
 
 function waitSummary(data) {
   if (!data || !data.lands) return '';
   var lines = [];
-  data.lands.forEach(function(l) {
-    l.rides.forEach(function(r) {
+  for (var i = 0; i < data.lands.length; i++) {
+    var land = data.lands[i];
+    for (var j = 0; j < land.rides.length; j++) {
+      var r = land.rides[j];
       lines.push(r.name + ': ' + (!r.is_open ? 'FECHADA' : r.wait_time === 0 ? 'Walk-in' : r.wait_time + 'min'));
-    });
-  });
+    }
+  }
   return lines.join('\n');
 }
 
-// SEND
+// ENVIAR
 async function send(txt) {
   if (busy) return;
   var inp = document.getElementById('inp');
-  var t = txt || inp.value.trim();
+  var t = txt !== undefined ? txt : inp.value.trim();
   if (!t) return;
 
-  if (!txt) {
+  if (txt === undefined) {
     inp.value = '';
     inp.style.height = 'auto';
   }
@@ -369,20 +291,19 @@ async function send(txt) {
   addMsg('user', t);
   setBusy(true);
 
-  // detectar parque hoje
-  var today = new Date().toISOString().split('T')[0];
-  var park = PARKS[today] ? PARKS[today].replace(' ⚔️','').replace(' 🧱','') : null;
-
-  // buscar filas se relevante
+  var park = getParkToday();
   var liveCtx = '';
   var cardHtml = '';
+
   if (/fila|espera|wait|tempo|queue|quanto/i.test(t) && park) {
-    var data = await getWaits(park);
-    if (data) {
-      var now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-      liveCtx = '\n\n[DADOS AO VIVO — ' + park + ' às ' + now + ']\n' + waitSummary(data);
-      cardHtml = makeWaitCard(data, park);
-    }
+    try {
+      var data = await getWaits(park);
+      if (data) {
+        var now = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+        liveCtx = '\n\n[DADOS AO VIVO — ' + park + ' às ' + now + ']\n' + waitSummary(data);
+        cardHtml = makeWaitCard(data, park);
+      }
+    } catch(e) {}
   }
 
   var msgs = history.slice(-12).concat([{ role: 'user', content: t + liveCtx }]);
@@ -406,7 +327,7 @@ async function send(txt) {
 
   } catch(err) {
     setBusy(false);
-    addMsg('agent', '⚠️ Erro: ' + err.message + '\n\nVerifique a conexão e tente de novo.');
+    addMsg('agent', 'Erro: ' + err.message + '\n\nVerifique a conexão e tente de novo.');
   }
 
   document.getElementById('sbtn').disabled = false;
@@ -414,10 +335,9 @@ async function send(txt) {
 
 function qa(t) { send(t); }
 
-// ADD MESSAGE
+// ADICIONAR MENSAGEM - versão simples sem insertBefore
 function addMsg(role, text, extra) {
   var msgs = document.getElementById('msgs');
-  var typ = document.getElementById('typ');
 
   var div = document.createElement('div');
   div.className = 'msg ' + role;
@@ -449,24 +369,30 @@ function addMsg(role, text, extra) {
   div.appendChild(av);
   div.appendChild(mc);
 
-  // inserir ANTES do typing indicator
-  msgs.insertBefore(div, typ);
+  // APPEND simples - sem insertBefore
+  msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 }
 
 function fmt(t) {
-  return t
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/`([^`\n]+)`/g, '<code>$1</code>')
-    .replace(/\n/g, '<br>');
+  if (!t) return '';
+  return String(t)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/`([^`\n]+)`/g,'<code>$1</code>')
+    .replace(/\n/g,'<br>');
+}
+
+function escHtml(t) {
+  return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 function setBusy(v) {
   busy = v;
   var dot = document.getElementById('dot');
   var typ = document.getElementById('typ');
-  dot.className = v ? 'busy' : '';
-  typ.className = v ? 'on' : '';
+  if (v) { dot.className = 'busy'; typ.className = 'on'; }
+  else   { dot.className = '';     typ.className = ''; }
   if (v) {
     var msgs = document.getElementById('msgs');
     msgs.scrollTop = msgs.scrollHeight;
