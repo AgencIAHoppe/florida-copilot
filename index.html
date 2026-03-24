@@ -88,7 +88,7 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
       <div class="logo">🎢</div>
       <div>
         <div class="hdr-title">Florida 2026</div>
-        <div class="hdr-sub" id="hdr-sub">Co-Piloto · Be, Ju &amp; Você</div>
+        <div class="hdr-sub" id="hdr-sub">Família Hoppe · Be, Ju &amp; Fernando</div>
       </div>
     </div>
     <div id="dot"></div>
@@ -103,15 +103,13 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
     <button class="qbtn" onclick="qa('Explica o Express Pass da Universal comparando com Lightning Lane Disney.')">🎟️ Universal 101</button>
     <button class="qbtn" onclick="qa('Como uso o app My Disney Experience agora?')">📱 App Disney</button>
     <button class="qbtn" onclick="qa('Uma atração fechou. Recalcula o roteiro de hoje.')">🔄 Rota quebrou</button>
-    <button class="qbtn" onclick="testWaits('Hollywood Studios')">🧪 Testar API</button>
+    <button class="qbtn" onclick="testWaits()">🧪 Testar API</button>
   </div>
 
-  <!-- ÁREA DE MENSAGENS - sem elemento #typ dentro -->
   <div id="msgs">
-    <div class="daybanner">CO-PILOTO ATIVO · FLORIDA 2026</div>
+    <div class="daybanner">CO-PILOTO ATIVO · FAMÍLIA HOPPE · FLORIDA 2026</div>
   </div>
 
-  <!-- TYPING INDICATOR - FORA do #msgs -->
   <div id="typ">
     <div class="tav">🎢</div>
     <div class="tbbl">
@@ -135,58 +133,41 @@ html,body{height:100%;background:#0a0a0f;color:#f0efe8;font-family:'DM Sans',san
 </div>
 
 <script>
-var SYSTEM = "Voce e o Guia de viagem da Familia Hoppe para as Ferias de 2026.\n\nFAMILIA: Fernando Hoppe (Pai, usuario do app), Julia Hoppe (mae, Hoppinha), Bernardo Hoppe / Be (filho, 3 anos e meio, 97cm, usa carrinho)\n\nPERFIL DO BE:\n- AMA: Carros/McQueen (paixao absoluta), Star Wars, Mickey Roadster Racers, dinossauros, animais\n- Leve desconforto com escuro mas nao bloqueia — NUNCA filtrar atracao por causa dele\n- Para cada atracao: informar restricao de altura real + se Kids Switch esta disponivel\n- Sempre deixar os pais decidirem\n\nPERFIL ADULTOS:\n- Experientes em Disney (multiplas visitas) — NAO explicar basico Disney\n- Pouca experiencia Universal — SEMPRE explicar Universal proativamente\n- Comparar Universal com Disney: Express Pass = Lightning Lane Single Pass, mas usa 1x por atracao por dia\n- Ambos topam adrenalina total, fazem Kids Switch em tudo\n- Ritmo intenso, acordam 7h, querem fazer TUDO\n\nHOTEIS E DATAS:\n- 28/04 a 05/05: All Star Movies Resort — HOTEL DISNEY = Early Entry 30min antes\n- 05/05 a 14/05: Monreale Hotel — FORA Disney = SEM Early Entry\n- Ingressos Disney: 1 parque por dia\n- Ingressos Universal: 14 dias, 3 parques\n- Ingresso Legoland: 1 dia\n\nCRONOGRAMA:\n- 28/04: Chegada / Rest Day\n- 29/04: EPCOT (Early Entry) + Flower & Garden Festival + Almoco no Garden Grill Restaurant (ajudar na reserva)\n- 30/04: Magic Kingdom (Early Entry) + Almoco no Tony's as 11h30, pedir mesa na varanda para ver o final da Parade\n- 01/05: Rest Day\n- 02/05: Animal Kingdom (Early Entry)\n- 03/05: Rest Day\n- 04/05: HOLLYWOOD STUDIOS — MAY THE 4TH — DIA FIXO IMUTAVEL — Savis Workshop, garantir o sabre de luz\n- 05/05: Troca de hotel / Rest Day\n- 06/05: LEGOLAND — dia do Be\n- 07/05: Breakfast with Chef Mickey — ajudar a agendar\n- 08/05: Islands of Adventure\n- 09/05: Rest Day + Disney BoardWalk\n- 10/05: Universal Studios Florida\n- 11/05: Rest Day\n- 12/05: Epic Universe 1a visita\n- 13/05: Epic Universe 2a visita\n- 14/05: Voo de volta ao Brasil\n\nMUST-HAVES ABSOLUTOS:\n1. 04/05 May the 4th — Hollywood Studios:\n   - Savi's Workshop (sabre de luz): RESERVA OBRIGATORIA no app My Disney Experience (~$299). Se nao reservado, ALERTAR URGENCIA MAXIMA.\n   - McQueen's Racing Academy: Be vai enlouquecer\n   - Millennium Falcon Smugglers Run: Be pilota a nave\n2. Magic Kingdom — Tony's Town Square Restaurant:\n   - Almoco as 11h30\n   - PEDIR MESA NA VARANDA (Balcony View) para ver a parade sentados\n   - Reservar no app My Disney Experience com 60 dias de antecedencia\n3. EPCOT — Garden Grill Restaurant: reservar com antecedencia\n4. Epic Universe — Toadstool Cafe (Nintendo World): reservar com antecedencia\n5. Breakfast with Chef Mickey (07/05): reservar com antecedencia no app My Disney Experience\n\nMUST-HAVES SECUNDARIOS:\n- Test Track EPCOT (Be ama carro de corrida)\n- Tomorrowland Speedway Magic Kingdom (Be dirige)\n- Expedition Everest + Kids Switch\n- Raptor Encounter Islands of Adventure (Be adora dinos)\n- Encontro com Toothless Epic Universe\n- Yoshi's Adventure + Power-Up Bands Nintendo World\n- Dragon Racer's Rally Epic Universe\n- Na'vi River Journey Animal Kingdom\n\nLEGOLAND 06/05:\n- Publico 2-12 anos — Be e o foco total\n- Prioridades: DUPLO Valley, LEGO City, The Dragon (32\" minimo)\n- Chegada as 10h, saida ~17h\n\nDISNEY BOARDWALK 09/05:\n- Area de entretenimento entre EPCOT e Hollywood Studios\n- Restaurantes, bares, mini-golf, boardwalk a beira do lago\n- Nao precisa de ingresso de parque\n- Otimo para jantar e passear com o Be a noite\n\nHACKS:\n- Tony's 11h30 = parade view da varanda (reserva Balcony View)\n- Magic Kingdom: entrar pela esquerda (Tomorrowland) = 40% menos fila\n- Early Entry: primeiros 90min tem 40-60% menos fila (so ate 05/05)\n- Kids Switch: adulto 1 entra, adulto 2 usa passe sem fila\n- Chuvas rapidas em Orlando 14-16h: indoor de tarde\n- Buscar hacks especificos de cada parque do dia\n- Pesquisar filas e desenhar roteiros otimizando tempo\n\nREGRAS:\n1. NUNCA filtrar atracao por tamanho/idade — so informar e deixar decidir\n2. Be AMA McQueen — qualquer coisa de corrida e prioridade emocional\n3. May the 4th = Hollywood Studios FIXO\n4. Savi's Workshop = alertar urgencia se nao confirmado\n5. Early Entry so funciona ate 05/05 (All Star Movies)\n6. Universal: explicar tudo proativamente sempre\n7. Se atracao quebrar: recalcular rota com alternativas concretas\n8. Incluir instrucao do app quando relevante\n9. Considerar carrinho do Be\n10. Considerar melhores rotas dentro do parque para todos os roteiros\n11. Pesquisar sempre as filas de cada atracao e desenhar roteiros otimizando o tempo\n\nCLIMA MAIO ORLANDO: 27-32C. Chuvas rapidas 14-16h. Indoor de tarde.\n\nALTURAS MINIMAS CRITICAS (sempre informar corretamente):
-- Rise of the Resistance: 102cm
-- TRON Lightcycle Run: 102cm  
-- Guardians of the Galaxy Cosmic Rewind: 107cm
-- Slinky Dog Dash: 97cm (Be esta no limite exato!)
-- Millennium Falcon Smugglers Run: 97cm (Be esta no limite exato!)
-- Space Mountain: 112cm
-- Big Thunder Mountain: 102cm
-- Expedition Everest: 112cm
-- Tower of Terror: 102cm
-- VelociCoaster: 130cm
-- Hagrid's Motorbike: 122cm
-- Hollywood Rip Ride Rockit: 130cm
-- Harry Potter Forbidden Journey: 122cm
-- Flight of the Hippogriff: 92cm
-- Na'vi River Journey: SEM restricao
-- Kilimanjaro Safaris: SEM restricao
-- Seven Dwarfs Mine Train: 97cm (Be esta no limite exato!)
-
-SOBRE FILAS: Quando receber dados ao vivo entre colchetes [DADOS AO VIVO], use-os e cite os tempos reais. Se receber [DADOS AO VIVO: nao foi possivel buscar], informe isso claramente e explique o motivo (parque fechado, fora de temporada, etc.). NUNCA invente tempos de espera.\n\nRESPONDA: Portugues do Brasil. Direto e pratico. Proxima acao concreta primeiro. Maximo 4 paragrafos. Emojis moderados.";
+var SYSTEM = "Voce e o Guia de viagem da Familia Hoppe para as Ferias de 2026.\n\nFAMILIA: Fernando Hoppe (Pai, usuario do app), Julia Hoppe (mae, Hoppinha), Bernardo Hoppe / Be (filho, 3 anos e meio, 97cm, usa carrinho)\n\nPERFIL DO BE:\n- AMA: Carros/McQueen (paixao absoluta), Star Wars, Mickey Roadster Racers, dinossauros, animais\n- Leve desconforto com escuro mas nao bloqueia - NUNCA filtrar atracao por causa dele\n- Para cada atracao: informar restricao de altura real + se Kids Switch esta disponivel\n- Sempre deixar os pais decidirem\n\nPERFIL ADULTOS:\n- Experientes em Disney (multiplas visitas) - NAO explicar basico Disney\n- Pouca experiencia Universal - SEMPRE explicar Universal proativamente\n- Comparar Universal com Disney: Express Pass = Lightning Lane Single Pass, mas usa 1x por atracao por dia\n- Ambos topam adrenalina total, fazem Kids Switch em tudo\n- Ritmo intenso, acordam 7h, querem fazer TUDO\n\nHOTEIS E DATAS:\n- 28/04 a 05/05: All Star Movies Resort - HOTEL DISNEY = Early Entry 30min antes\n- 05/05 a 14/05: Monreale Hotel - FORA Disney = SEM Early Entry\n- Ingressos Disney: 1 parque por dia\n- Ingressos Universal: 14 dias, 3 parques\n- Ingresso Legoland: 1 dia\n\nCRONOGRAMA:\n- 28/04: Chegada / Rest Day\n- 29/04: EPCOT (Early Entry) + Flower & Garden Festival + Almoco no Garden Grill Restaurant (ajudar na reserva)\n- 30/04: Magic Kingdom (Early Entry) + Almoco no Tonys as 11h30, pedir mesa na varanda para ver o final da Parade\n- 01/05: Rest Day\n- 02/05: Animal Kingdom (Early Entry)\n- 03/05: Rest Day\n- 04/05: HOLLYWOOD STUDIOS - MAY THE 4TH - DIA FIXO IMUTAVEL - Savis Workshop, garantir o sabre de luz\n- 05/05: Troca de hotel / Rest Day\n- 06/05: LEGOLAND - dia do Be\n- 07/05: Breakfast with Chef Mickey - ajudar a agendar\n- 08/05: Islands of Adventure\n- 09/05: Rest Day + Disney BoardWalk\n- 10/05: Universal Studios Florida\n- 11/05: Rest Day\n- 12/05: Epic Universe 1a visita\n- 13/05: Epic Universe 2a visita\n- 14/05: Voo de volta ao Brasil\n\nMUST-HAVES ABSOLUTOS:\n1. 04/05 May the 4th - Hollywood Studios:\n   - Savis Workshop (sabre de luz): RESERVA OBRIGATORIA no app My Disney Experience (~$299). Se nao reservado, ALERTAR URGENCIA MAXIMA.\n   - McQueens Racing Academy: Be vai enlouquecer\n   - Millennium Falcon Smugglers Run: Be pilota a nave\n2. Magic Kingdom - Tonys Town Square Restaurant:\n   - Almoco as 11h30\n   - PEDIR MESA NA VARANDA (Balcony View) para ver a parade sentados\n   - Reservar no app My Disney Experience com 60 dias de antecedencia\n3. EPCOT - Garden Grill Restaurant: reservar com antecedencia\n4. Epic Universe - Toadstool Cafe (Nintendo World): reservar com antecedencia\n5. Breakfast with Chef Mickey (07/05): reservar com antecedencia no app My Disney Experience\n\nMUST-HAVES SECUNDARIOS:\n- Test Track EPCOT (Be ama carro de corrida)\n- Tomorrowland Speedway Magic Kingdom (Be dirige)\n- Expedition Everest + Kids Switch\n- Raptor Encounter Islands of Adventure (Be adora dinos)\n- Encontro com Toothless Epic Universe\n- Yoshis Adventure + Power-Up Bands Nintendo World\n- Dragon Racers Rally Epic Universe\n- Navi River Journey Animal Kingdom\n\nLEGOLAND 06/05:\n- Publico 2-12 anos - Be e o foco total\n- Prioridades: DUPLO Valley, LEGO City, The Dragon (32 polegadas minimo)\n- Chegada as 10h, saida ~17h\n\nDISNEY BOARDWALK 09/05:\n- Area de entretenimento entre EPCOT e Hollywood Studios\n- Restaurantes, bares, mini-golf, boardwalk a beira do lago\n- Nao precisa de ingresso de parque\n- Otimo para jantar e passear com o Be a noite\n\nALTURAS MINIMAS CRITICAS (sempre informar corretamente):\n- Rise of the Resistance: 102cm\n- TRON Lightcycle Run: 102cm\n- Guardians of the Galaxy Cosmic Rewind: 107cm\n- Slinky Dog Dash: 97cm (Be esta no limite exato!)\n- Millennium Falcon Smugglers Run: 97cm (Be esta no limite exato!)\n- Seven Dwarfs Mine Train: 97cm (Be esta no limite exato!)\n- Space Mountain: 112cm\n- Big Thunder Mountain: 102cm\n- Expedition Everest: 112cm\n- Tower of Terror: 102cm\n- VelociCoaster: 130cm\n- Hagrids Motorbike: 122cm\n- Hollywood Rip Ride Rockit: 130cm\n- Harry Potter Forbidden Journey: 122cm\n- Flight of the Hippogriff: 92cm (Be passa!)\n- Navi River Journey: SEM restricao\n- Kilimanjaro Safaris: SEM restricao\n- Na vida real Be tem 97cm - sempre verificar se atinge o minimo\n\nHACKS:\n- Tonys 11h30 = parade view da varanda (reserva Balcony View)\n- Magic Kingdom: entrar pela esquerda (Tomorrowland) = 40% menos fila\n- Early Entry: primeiros 90min tem 40-60% menos fila (so ate 05/05)\n- Kids Switch: adulto 1 entra, adulto 2 usa passe sem fila\n- Chuvas rapidas em Orlando 14-16h: indoor de tarde\n- Buscar hacks especificos de cada parque do dia\n- Pesquisar filas e desenhar roteiros otimizando tempo\n\nREGRAS:\n1. NUNCA filtrar atracao por tamanho/idade - so informar e deixar decidir\n2. Be AMA McQueen - qualquer coisa de corrida e prioridade emocional\n3. May the 4th = Hollywood Studios FIXO\n4. Savis Workshop = alertar urgencia se nao confirmado\n5. Early Entry so funciona ate 05/05 (All Star Movies)\n6. Universal: explicar tudo proativamente sempre\n7. Se atracao quebrar: recalcular rota com alternativas concretas\n8. Incluir instrucao do app quando relevante\n9. Considerar carrinho do Be\n10. Considerar melhores rotas dentro do parque\n11. Pesquisar filas e otimizar roteiros sempre\n\nSOBRE FILAS: Quando receber dados ao vivo entre colchetes [DADOS AO VIVO], use-os e cite os tempos reais. NUNCA invente tempos de espera.\n\nCLIMA MAIO ORLANDO: 27-32C. Chuvas rapidas 14-16h. Indoor de tarde.\n\nRESPONDA: Portugues do Brasil. Direto e pratico. Proxima acao concreta primeiro. Maximo 4 paragrafos. Emojis moderados.";
 
 var chatHistory = [];
 var busy = false;
 
 var PARKS = {
-  '2026-04-28':'Chegada',
-  '2026-04-29':'EPCOT',
-  '2026-04-30':'Magic Kingdom',
-  '2026-05-01':'Rest Day',
-  '2026-05-02':'Animal Kingdom',
-  '2026-05-03':'Rest Day',
-  '2026-05-04':'Hollywood Studios',
-  '2026-05-05':'Troca de Hotel',
-  '2026-05-06':'Legoland',
-  '2026-05-07':'Chef Mickey Breakfast',
-  '2026-05-08':'Islands of Adventure',
-  '2026-05-09':'Disney BoardWalk',
-  '2026-05-10':'Universal Studios Florida',
-  '2026-05-11':'Rest Day',
-  '2026-05-12':'Epic Universe',
-  '2026-05-13':'Epic Universe'
+  '2026-04-28': 'Chegada',
+  '2026-04-29': 'EPCOT',
+  '2026-04-30': 'Magic Kingdom',
+  '2026-05-01': 'Rest Day',
+  '2026-05-02': 'Animal Kingdom',
+  '2026-05-03': 'Rest Day',
+  '2026-05-04': 'Hollywood Studios',
+  '2026-05-05': 'Troca de Hotel',
+  '2026-05-06': 'Legoland',
+  '2026-05-07': 'Chef Mickey Breakfast',
+  '2026-05-08': 'Islands of Adventure',
+  '2026-05-09': 'Disney BoardWalk',
+  '2026-05-10': 'Universal Studios Florida',
+  '2026-05-11': 'Rest Day',
+  '2026-05-12': 'Epic Universe',
+  '2026-05-13': 'Epic Universe'
 };
 
-var PARK_IDS = {
-  'Magic Kingdom':'6','EPCOT':'5','Hollywood Studios':'7','Animal Kingdom':'8',
-  'Universal Studios Florida':'13','Islands of Adventure':'14',
-  'Epic Universe':'687','Legoland':'13261'
+var PARK_KEYWORDS = {
+  'Hollywood Studios': ['hollywood','rise of the resistance','smugglers run','runaway railway','slinky','tower of terror','galaxy edge','millennium falcon'],
+  'Magic Kingdom': ['magic kingdom','tomorrowland','fantasyland','adventureland','big thunder','tron','peter pan','haunted mansion','seven dwarfs'],
+  'EPCOT': ['epcot','guardians','ratatouille','frozen ever after','test track','soarin'],
+  'Animal Kingdom': ['animal kingdom','pandora','flight of passage','kilimanjaro','everest','navi river'],
+  'Universal Studios Florida': ['universal studios florida','minions','gringotts','springfield','diagon alley','rip ride rockit'],
+  'Islands of Adventure': ['islands of adventure','hogsmeade','velocicoaster','hagrid','jurassic','spiderman','forbidden journey','hippogriff'],
+  'Epic Universe': ['epic universe','nintendo world','mario kart','toothless','isle of berk','ministry of magic','dark universe','yoshi','donkey kong']
 };
 
-// INIT - espera o DOM carregar completamente
 window.onload = function() {
-  // textarea resize
   var inp = document.getElementById('inp');
   inp.oninput = function() {
     this.style.height = 'auto';
@@ -200,40 +181,47 @@ window.onload = function() {
     }
   };
 
-  // detectar dia e atualizar header
   var today = getToday();
   var park = PARKS[today];
-  if (park) {
+  if (park && park !== 'Rest Day' && park !== 'Chegada' && park !== 'Troca de Hotel') {
     var label = park;
     if (today === '2026-05-04') label = 'Hollywood Studios ⚔️';
     if (today === '2026-05-06') label = 'Legoland 🧱';
-    document.getElementById('hdr-sub').textContent = label + ' · Be, Ju & Você';
+    if (today === '2026-05-07') label = 'Chef Mickey 🥞';
+    if (today === '2026-05-09') label = 'Disney BoardWalk 🎡';
+    document.getElementById('hdr-sub').textContent = label + ' · Família Hoppe';
   }
 
-  // mensagem de boas vindas com delay para garantir DOM pronto
   setTimeout(function() {
     var h = new Date().getHours();
     var g = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
     var msg = '';
-
     if (today === '2026-05-04') {
       msg = '⚔️ MAY THE 4TH BE WITH YOU, Família Hoppe!\n\nHoje é o dia mais especial da viagem — Hollywood Studios está esperando vocês.\n\nChecklist urgente:\n• Savi\'s Workshop: horário reservado?\n• McQueen\'s Racing Academy: primeiro horário disponível\n• Millennium Falcon: Be pilota a nave!\n\nO que posso ajudar agora?';
     } else if (today === '2026-05-06') {
       msg = '🧱 Dia do Bernardo no Legoland!\n\nHoje o parque é do Be — foi feito pra ele.\n\nPrioridades: DUPLO Valley primeiro, depois LEGO City e The Dragon. Chegada às 10h.\n\nQuer o briefing completo?';
     } else if (today === '2026-05-07') {
-      msg = '🥞 Dia do Breakfast with Chef Mickey!\n\nUma das experiências mais mágicas para o Be — Mickey e turma em pessoa no café da manhã.\n\nReserva confirmada no app My Disney Experience?\n\nQuer ajuda com alguma coisa?';
+      msg = '🥞 Dia do Breakfast with Chef Mickey!\n\nUma das experiências mais mágicas para o Be — Mickey e turma em pessoa no café da manhã.\n\nReserva confirmada no app My Disney Experience?\n\nQuer ajuda com alguma coisa antes de ir?';
     } else if (today === '2026-04-29') {
       msg = g + '! 🌸 Hoje é EPCOT + Flower & Garden Festival, Fernando!\n\nTopiários do Buzz, Woody, Simba e +60 personagens. O Be vai amar o Butterfly Landing!\n\nGarden Grill Restaurant reservado? Me avisa que ajudo agora.\n\nQuer o roteiro completo?';
     } else if (today === '2026-04-30') {
       msg = g + '! 🏰 Hoje é Magic Kingdom!\n\nLembra do hack do Tony\'s: reserva às 11h30, mesa na varanda (Balcony View) para ver a Parade sentados.\n\nEntrem pela esquerda (Tomorrowland) — 40% menos fila nos primeiros 30 minutos.\n\nQuer o roteiro completo?';
+    } else if (today === '2026-05-02') {
+      msg = g + '! 🌿 Hoje é Animal Kingdom!\n\nPrioridade máxima de manhã: Flight of Passage com Early Entry (44" mínimo — Kids Switch para os dois).\n\nDepois: Kilimanjaro Safaris logo cedo — animais mais ativos de manhã. O Be vai amar!\n\nQuer o roteiro completo?';
+    } else if (today === '2026-05-08') {
+      msg = g + '! 🦖 Hoje é Islands of Adventure!\n\nPrioridade: Hagrid\'s Motorbike (122cm — Kids Switch) e VelociCoaster (130cm — Kids Switch) logo cedo.\n\nPara o Be: Seuss Landing, Hogsmeade e Flight of the Hippogriff (92cm — Be passa!).\n\nQuer o roteiro completo?';
     } else if (today === '2026-05-09') {
-      msg = g + '! 🎡 Dia de descanso + Disney BoardWalk!\n\nSem parque hoje. O BoardWalk à noite é ótimo para a família — sem ingresso, restaurantes à beira do lago.\n\nQuer sugestões do que fazer por lá?';
+      msg = g + '! 🎡 Dia de descanso + Disney BoardWalk!\n\nSem parque hoje. O BoardWalk à noite é ótimo — sem ingresso, restaurantes à beira do lago, o Be vai adorar.\n\nQuer sugestões do que fazer por lá?';
+    } else if (today === '2026-05-10') {
+      msg = g + '! 🎬 Hoje é Universal Studios Florida!\n\nPrimeira prioridade: Diagon Alley logo na abertura (Gringotts tem fila enorme depois das 10h).\n\nLembrete: vocês estão no Monreale agora — sem Early Entry Universal. Cheguem na abertura!\n\nQuer o roteiro completo?';
+    } else if (today === '2026-05-12' || today === '2026-05-13') {
+      var visita = today === '2026-05-12' ? '1ª' : '2ª';
+      msg = g + '! ⚡ Hoje é Epic Universe — ' + visita + ' visita!\n\nO parque mais novo da Universal. Para o Be: Nintendo World (Mario Kart, Yoshi) e Isle of Berk (Toothless animatrônico).\n\nLembrete: sem Early Entry (Monreale). Dragon Racer\'s Rally NÃO aceita Express Pass — faça cedo!\n\nQuer o roteiro completo?';
     } else if (park && park !== 'Rest Day' && park !== 'Chegada' && park !== 'Troca de Hotel') {
       msg = g + '! 🎢 Família Hoppe, hoje é dia de ' + park + '.\n\nEstou aqui para filas ao vivo, roteiro otimizado, hacks e imprevistos.\n\nQuer o briefing completo do dia?';
     } else {
-      msg = g + '! 🎢 Guia da Família Hoppe — Florida 2026 ativo.\n\nRoteiro completo carregado: parques, must-haves, perfil do Be, hacks e Universal do zero.\n\nComo posso ajudar, Fernando?';
+      msg = g + '! 🎢 Guia da Família Hoppe — Florida 2026 ativo.\n\nRoteiro completo carregado: parques, must-haves, perfil do Be, alturas corretas, hacks e Universal do zero.\n\nComo posso ajudar, Fernando?';
     }
-
     addMsg('agent', msg);
   }, 300);
 };
@@ -243,19 +231,10 @@ function getToday() {
 }
 
 function getParkToday() {
-  return PARKS[getToday()] || null;
+  var p = PARKS[getToday()];
+  if (!p || p === 'Rest Day' || p === 'Chegada' || p === 'Troca de Hotel' || p === 'Chef Mickey Breakfast' || p === 'Disney BoardWalk') return null;
+  return p;
 }
-
-// FILAS — busca feita no backend para evitar CORS
-var PARK_KEYWORDS = {
-  'Hollywood Studios': ['hollywood','rise of the resistance','smugglers','runaway railway','slinky','tower of terror','galaxy'],
-  'Magic Kingdom': ['magic kingdom','tomorrowland','fantasyland','adventureland','thunder mountain','tron','peter pan','haunted mansion'],
-  'EPCOT': ['epcot','guardians','ratatouille','frozen ever after','test track','soarin'],
-  'Animal Kingdom': ['animal kingdom','pandora','flight of passage','kilimanjaro','everest','na\'vi'],
-  'Universal Studios Florida': ['universal studios','minions','gringotts','springfield','diagon alley','rip ride'],
-  'Islands of Adventure': ['islands of adventure','hogsmeade','velocicoaster','hagrid','jurassic','spiderman','forbidden journey'],
-  'Epic Universe': ['epic universe','nintendo world','mario kart','toothless','isle of berk','ministry of magic','dark universe']
-};
 
 function detectParkFromText(t) {
   var tl = t.toLowerCase();
@@ -268,31 +247,31 @@ function detectParkFromText(t) {
   return null;
 }
 
-async function testWaits(parkName) {
-  addMsg('agent', '🔍 Testando API para ' + parkName + ' via servidor...');
+async function testWaits() {
+  var park = getParkToday() || 'Hollywood Studios';
+  addMsg('agent', '🔍 Testando API ao vivo para ' + park + '...');
   try {
     var res = await fetch('/api/chat', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         messages: [{ role: 'user', content: 'teste' }],
-        system: 'Responda só: ok',
-        parkName: parkName,
+        system: 'Responda apenas: ok',
+        parkName: park,
         fetchWaits: true
       })
     });
     var json = await res.json();
     if (json.hasLiveData) {
-      addMsg('agent', '✅ API funcionando! Dados ao vivo de ' + parkName + ' carregados com sucesso.');
+      addMsg('agent', '✅ API funcionando! Dados ao vivo de ' + park + ' carregados. As filas estão sendo buscadas corretamente.', json.waitCard || null);
     } else {
-      addMsg('agent', '⚠️ Backend acessou a API mas sem dados para ' + parkName + ' agora. Tente novamente.');
+      addMsg('agent', '⚠️ Backend conectou mas sem dados de ' + park + ' agora. A Queue Times pode estar com instabilidade temporária. Tente novamente em alguns minutos.');
     }
   } catch(e) {
-    addMsg('agent', '❌ Erro: ' + e.message);
+    addMsg('agent', '❌ Erro ao testar: ' + e.message);
   }
 }
 
-// ENVIAR
 async function send(txt) {
   if (busy) return;
   var inp = document.getElementById('inp');
@@ -311,7 +290,7 @@ async function send(txt) {
   var park = getParkToday();
   var mentionedPark = detectParkFromText(t);
   var parkForWaits = mentionedPark || park;
-  var shouldFetchWaits = /fila|espera|wait|queue|lotado|cheio|tempo de espera|quanto.*espera|aberta|fechada/i.test(t);
+  var shouldFetchWaits = /fila|espera|wait|queue|lotado|cheio|tempo de espera|quanto.*min|aberta agora|fechada agora/i.test(t) && !!parkForWaits;
 
   var msgs = chatHistory.slice(-12).concat([{ role: 'user', content: t }]);
 
@@ -323,7 +302,7 @@ async function send(txt) {
         messages: msgs,
         system: SYSTEM,
         parkName: shouldFetchWaits ? parkForWaits : null,
-        fetchWaits: shouldFetchWaits && !!parkForWaits
+        fetchWaits: shouldFetchWaits
       })
     });
 
@@ -347,10 +326,8 @@ async function send(txt) {
 
 function qa(t) { send(t); }
 
-// ADICIONAR MENSAGEM - versão simples sem insertBefore
 function addMsg(role, text, extra) {
-  var msgs = document.getElementById('msgs');
-
+  var container = document.getElementById('msgs');
   var div = document.createElement('div');
   div.className = 'msg ' + role;
 
@@ -370,20 +347,16 @@ function addMsg(role, text, extra) {
   ts.textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 
   mc.appendChild(bbl);
-
   if (extra) {
     var ex = document.createElement('div');
     ex.innerHTML = extra;
     mc.appendChild(ex);
   }
-
   mc.appendChild(ts);
   div.appendChild(av);
   div.appendChild(mc);
-
-  // APPEND simples - sem insertBefore
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
 }
 
 function fmt(t) {
@@ -395,20 +368,11 @@ function fmt(t) {
     .replace(/\n/g,'<br>');
 }
 
-function escHtml(t) {
-  return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
 function setBusy(v) {
   busy = v;
-  var dot = document.getElementById('dot');
-  var typ = document.getElementById('typ');
-  if (v) { dot.className = 'busy'; typ.className = 'on'; }
-  else   { dot.className = '';     typ.className = ''; }
-  if (v) {
-    var msgs = document.getElementById('msgs');
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+  document.getElementById('dot').className = v ? 'busy' : '';
+  document.getElementById('typ').className = v ? 'on' : '';
+  if (v) document.getElementById('msgs').scrollTop = 999999;
 }
 </script>
 </body>
